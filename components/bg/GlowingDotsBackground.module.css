@@ -1,0 +1,38 @@
+.dotsContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Behind all content */
+}
+
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff,
+    0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+  animation: glow 3s infinite alternate, move 100s infinite alternate; /* Slow movement */
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(2px, 2px); /* Small movement range */
+  }
+}
