@@ -56,27 +56,45 @@ export const navLink: {
 }[] = [
   {
     name: "Introduction",
-    href: "#",
+    href: "/",
     variant: "outline",
   },
   {
     name: "Skills",
-    href: "#",
+    href: "/skills",
     variant: "outline",
   },
   {
     name: "Projects",
-    href: "#",
+    href: "/projects",
     variant: "outline",
   },
   {
     name: "Capabilities",
-    href: "#",
+    href: "/capabilities",
     variant: "outline",
   },
   {
     name: "Contact",
-    href: "#",
+    href: "/contact",
     variant: "accent",
+  },
+];
+
+export const skillList = [
+  {
+    name: "TypeScript",
+    icon: "/typescript.svg",
+    desc: "TypeScript is a strongly typed programming language that builds on top of JavaScript, giving you better tooling at any scale.",
+  },
+  {
+    name: "React",
+    icon: "/react.svg",
+    desc: "React is a JavaScript library for building user interfaces.",
+  },
+  {
+    name: "NextJS",
+    icon: "/next-js.svg",
+    desc: "Next.js is a React framework that enables server-side rendering and SEO.",
   },
 ];

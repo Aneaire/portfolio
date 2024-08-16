@@ -1,5 +1,5 @@
 import GlowingDotsBackground from "@/components/bg/GlowingDotsBackground";
-import SideBar from "@/components/SideBar";
+import SideBar from "@/components/sidebar/SideBar";
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${poppins.className} ${montserrat.className} dark`}>
         <div className=" flex gap-5">
           <SideBar />
-          {children}
+          <div className=" py-5">{children}</div>
         </div>
         <GlowingDotsBackground />
       </body>

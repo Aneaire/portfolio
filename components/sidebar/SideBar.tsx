@@ -1,7 +1,7 @@
-import { navLink, skills } from "@/constant/fixedText";
+import { skills } from "@/constant/fixedText";
 import Image from "next/image";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
+import { Badge } from "../ui/badge";
+import NavBar from "./NavBar";
 
 const SideProfile = () => {
   return (
@@ -32,26 +32,6 @@ const SideProfile = () => {
             ))}
           </span>
         </div>
-      </div>
-    </div>
-  );
-};
-
-const NavBar = () => {
-  return (
-    <div className=" w-full flex-1 bg-foreground p-4">
-      <div className=" flex gap-5 flex-col  h-full">
-        {navLink.map((link) => (
-          <Button
-            key={link.name}
-            className={`max-w-[370px] mx-auto font-bold text-lg w-full hover:scale-95 hover:shadow-md transition ${
-              link.variant == "accent" && "mt-auto"
-            }`}
-            variant={link.variant}
-          >
-            {link.name}
-          </Button>
-        ))}
       </div>
     </div>
   );

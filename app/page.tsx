@@ -2,10 +2,8 @@ import { homeText } from "@/constant/fixedText";
 
 export default function Home() {
   return (
-    <main className=" relative py-5 px-2 max-w-4xl">
-      <h1 className=" font-poppins text-3xl tracking-wider font-bold">
-        {homeText.title}
-      </h1>
+    <main className=" relative px-2 max-w-4xl">
+      <h1 className=" header-text">{homeText.title}</h1>
       <div className="space-y-5 pt-4">
         <p className=" font-mono">{homeText.description}</p>
         {homeText.others.map((text) => (

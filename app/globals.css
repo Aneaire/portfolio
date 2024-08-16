@@ -67,3 +67,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .header-text {
+    @apply text-3xl font-bold tracking-wider;
+  }
+}
