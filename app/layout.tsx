@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} ${montserrat.className} dark`}>
-        <div className=" flex gap-5">
+        <div className="flex gap-5">
           <SideBar />
-          <div className=" py-5">{children}</div>
+          <div className="px-4 py-2">{children}</div>
         </div>
         <GlowingDotsBackground />
       </body>
