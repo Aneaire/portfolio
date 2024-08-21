@@ -1,16 +1,18 @@
 "use client";
 import { navLink } from "@/constant/fixedText";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import useSideBarStore from "../store/sidebar-store";
 import { Button } from "../ui/button";
 
 const NavBar = () => {
   const router = useRouter();
+  const pathname = usePathname();
+
   const { setHamburger, hamburgerShown } = useSideBarStore((state) => state);
 
   const handleClick = (href: string) => {
     setHamburger(!hamburgerShown);
-    router.replace(href);
+    router.push(href);
   };
 
   return (
@@ -20,12 +22,17 @@ const NavBar = () => {
           <Button
             onClick={() => handleClick(link.href)}
             key={link.name}
-            className={`mx-auto w-full max-w-[370px] text-lg font-bold transition hover:scale-95 hover:shadow-md ${
+            className={`relative mx-auto w-full max-w-[370px] overflow-hidden text-lg font-bold transition ${pathname != link.href && "hover:scale-95 hover:shadow-md"} ${
               link.variant == "accent" && "mt-auto"
-            }`}
+            } `}
             variant={link.variant}
           >
             {link.name}
+            {pathname === link.href && (
+              <div
+                className={`absolute right-0 top-0 h-full w-1.5 ${pathname === "/contact" ? "bg-blue-500" : "bg-accent"}`}
+              />
+            )}
           </Button>
         ))}
       </div>

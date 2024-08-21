@@ -72,4 +72,7 @@
   .header-text {
     @apply text-3xl font-bold tracking-wider;
   }
+  .skill-card-wrapper {
+    @apply flex max-w-7xl flex-wrap gap-4;
+  }
 }

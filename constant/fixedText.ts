@@ -29,7 +29,7 @@ export const homeText = {
     {
       title: "Embracing Continuous Learning",
       description:
-        "Productivity, to me, is also about staying curious and adaptable. The tech landscape is constantly evolving, and I thrive on exploring new trends, tools, and methodologies. Whether it's diving into a new programming language, experimenting with the latest frameworks, or understanding emerging technologies like AI and blockchain, I am always eager to expand my skill set. This commitment to learning ensures that my solutions are not only current but also innovative and robust.",
+        "Productivity, to me, is also about staying curious and adaptable. The tech landscape is constantly evolving, and I thrive on exploring new trends, tools, and methodologies. Whether it's diving into a new programming language, experimenting with the latest frameworks, or understanding emerging technologies like AI and cloud computing, I am always eager to expand my skill set. This commitment to learning ensures that my solutions are not only current but also innovative and robust.",
     },
     {
       title: "Building and Collaborating",
@@ -47,6 +47,13 @@ export const homeText = {
         "I believe in sharing what I learn. Through blogs, talks, and tutorials, I enjoy teaching others and demystifying complex concepts. This not only reinforces my understanding but also helps the community grow. Whether you're a seasoned developer or just starting out, I hope my insights can inspire and assist you in your own journey.",
     },
   ],
+};
+
+export const personalInfo = {
+  name: "Angelo Santiago",
+  location: "Pampanga, Philippines",
+  email: "aneaire010@gmail.com",
+  number: "09757051714",
 };
 
 export const navLink: {
@@ -69,17 +76,21 @@ export const navLink: {
     href: "/projects",
     variant: "outline",
   },
-  {
-    name: "Capabilities",
-    href: "/capabilities",
-    variant: "outline",
-  },
+
   {
     name: "Contact",
     href: "/contact",
     variant: "accent",
   },
 ];
+
+export type ISKillList = {
+  name: string;
+  icon: string;
+  desc: string;
+  alt: string;
+  link: string;
+};
 
 export const skillList = [
   {
@@ -207,5 +218,43 @@ export const skillList = [
     desc: "Mapbox is a powerful map API that enables the integration of custom maps into web and mobile applications.",
     alt: "Mapbox icon representing a map API for custom maps in web and mobile applications",
     link: "https://www.mapbox.com/",
+  },
+];
+
+export const projects = [
+  {
+    name: "Noonu",
+    nameDesc: "Anime Streaming App",
+    desc: "A platform designed for anime streaming, built with Next.js and utilizing Tanstack Query for efficient API request management. The site features server-side caching for optimal performance and uses cookies to track watched episodes and previously viewed anime, ensuring a personalized and seamless user experience.",
+    image: "/anime.png",
+    link: "https://noonu.vercel.app/",
+  },
+  {
+    name: "Moonu",
+    nameDesc: "Manga App",
+    desc: "A platform designed for manga reading, built with Next.js and utilizing Tanstack Query for efficient API request management. The site features server-side caching for optimal performance and uses cookies to track read chapters and previously viewed manga, ensuring a personalized and seamless user experience ( credit to mangadex API ).",
+    image: "/manga.png",
+    link: "https://moonu.vercel.app/",
+  },
+  {
+    name: "Lets Be Friend’s",
+    nameDesc: "Web & Mobile App",
+    desc: "Let's Be Friends is a social networking app built with React 18, featuring a page-based router for intuitive navigation. The app leverages Appwrite for backend services and integrates Node.js with Express to enhance security, particularly for its messaging and payment features. Given the high level of user interaction, stringent document security measures are implemented. The application is hosted on Hostinger and utilizes Tailwind CSS and Shadcn for modern and responsive design. For the payment processing, Let's Be Friends uses PayMongo, ensuring secure and seamless transactions.",
+    image: "/lbf.png",
+    link: "https://letsbefriends.site/",
+  },
+  {
+    name: "Personalized Gallery",
+    nameDesc: "Manga App",
+    desc: "Personalized Gallery is an innovative app designed to offer users a curated and personalized collection of images and media. Built using the T3 Stack, which includes Next.js, TypeScript, and Tailwind CSS, the app provides a smooth and modern user experience. It leverages Drizzle ORM for seamless database interactions with PostgreSQL, ensuring robust data management and type safety across the application. Deployed on Vercel, Personalized Gallery guarantees high performance and reliability. The app also integrates PostHog for advanced analytics, allowing for detailed insights into user behavior and app usage, which helps in continuously refining and enhancing the user experience.",
+    image: "/t3gallery.png",
+    link: "https://t3gallery-seven-gilt.vercel.app",
+  },
+  {
+    name: "LayLands",
+    nameDesc: "Web & Mobile App",
+    desc: "A platform designed for manga reading, built with Next.js and utilizing Tanstack Query for efficient API request management. The site features server-side caching for optimal performance and uses cookies to track read chapters and previously viewed manga, ensuring a personalized and seamless user experience ( credit to mangadex API ).",
+    image: "/layland.png",
+    link: "https://moonu.vercel.app/",
   },
 ];
