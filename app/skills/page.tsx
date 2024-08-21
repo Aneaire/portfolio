@@ -6,7 +6,7 @@ import { memo } from "react";
 const SkillPage = () => {
   return (
     <Container title="Skills and Expertize">
-      <p className="mt-2 max-w-4xl font-mono text-lg">
+      <p className="mt-2 font-mono text-lg">
         I am adept at adopting new technologies and tools, whether for web or
         mobile applications. My adaptability ensures that I can quickly get up
         to speed with whatever is required to deliver exceptional results. I’m

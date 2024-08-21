@@ -7,7 +7,7 @@ const ProjectsPage = () => {
     <Container title="Projects">
       <div className="flex flex-col gap-10">
         {projects.map((project) => (
-          <ProjectCard project={project} />
+          <ProjectCard key={project.name + project.link} project={project} />
         ))}
       </div>
     </Container>

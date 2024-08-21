@@ -75,4 +75,7 @@
   .skill-card-wrapper {
     @apply flex max-w-7xl flex-wrap gap-4;
   }
+  .input-form {
+    @apply w-full rounded px-2 py-2 text-gray-900 placeholder:text-gray-900;
+  }
 }

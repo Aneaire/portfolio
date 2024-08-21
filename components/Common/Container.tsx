@@ -6,9 +6,9 @@ const Container = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="mt-2 max-w-5xl">
+    <div className="mt-2 w-full max-w-5xl">
       <h1 className="header-text pb-4">{title}</h1>
-      {children}
+      <div className="w-full">{children}</div>
     </div>
   );
 };

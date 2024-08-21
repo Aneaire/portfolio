@@ -248,7 +248,7 @@ export const projects = [
     nameDesc: "Manga App",
     desc: "Personalized Gallery is an innovative app designed to offer users a curated and personalized collection of images and media. Built using the T3 Stack, which includes Next.js, TypeScript, and Tailwind CSS, the app provides a smooth and modern user experience. It leverages Drizzle ORM for seamless database interactions with PostgreSQL, ensuring robust data management and type safety across the application. Deployed on Vercel, Personalized Gallery guarantees high performance and reliability. The app also integrates PostHog for advanced analytics, allowing for detailed insights into user behavior and app usage, which helps in continuously refining and enhancing the user experience.",
     image: "/t3gallery.png",
-    link: "https://t3gallery-seven-gilt.vercel.app",
+    link: "https://gel-gallery.vercel.app/",
   },
   {
     name: "LayLands",
