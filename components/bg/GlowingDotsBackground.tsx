@@ -2,7 +2,7 @@ import styles from "./GlowingDotsBackground.module.css";
 
 const GlowingDotsBackground = () => {
   // Generate dots on the server
-  const numberOfDots = 200;
+  const numberOfDots = 50;
   const dots = Array.from({ length: numberOfDots }, (_, i) => {
     const randomX = Math.random() * 100;
     const randomY = Math.random() * 100;
@@ -25,7 +25,7 @@ const GlowingDotsBackground = () => {
   });
 
   return (
-    <div id="dots-container" className={`${styles.dotsContainer} opacity-100 `}>
+    <div id="dots-container" className={`${styles.dotsContainer} opacity-100`}>
       {dots}
     </div>
   );

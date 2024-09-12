@@ -1,12 +1,6 @@
-type IProject = {
-  name: string;
-  nameDesc: string;
-  desc: string;
-  image: string;
-  link: string;
-};
+import { Project } from "@/constant/fixedText";
 
-const ProjectCard = ({ project }: { project: IProject }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div key={project.name} className="space-y-2">
       <span className="flex items-center gap-2">
@@ -14,9 +8,13 @@ const ProjectCard = ({ project }: { project: IProject }) => {
         <span className="font-regular text-sm">({project.nameDesc})</span>
       </span>
       <p className="pb-1 text-sm">{project.desc}</p>
-      <a className="text-blue-400" target="_blank" href={project.link}>
-        {project.link}
-      </a>
+      {project.status === "upcoming" ? (
+        <p className="text-orange-400">{project.link}</p>
+      ) : (
+        <a className="text-blue-400" target="_blank" href={project.link}>
+          {project.link}
+        </a>
+      )}
       <img alt={project.name} src={project.image} />
     </div>
   );

@@ -221,13 +221,23 @@ export const skillList = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  name: string;
+  nameDesc: string;
+  desc: string;
+  image: string;
+  link: string;
+  status: "live" | "upcoming" | "down";
+};
+
+export const projects: Project[] = [
   {
     name: "Noonu",
     nameDesc: "Anime Streaming App",
     desc: "A platform designed for anime streaming, built with Next.js and utilizing Tanstack Query for efficient API request management. The site features server-side caching for optimal performance and uses cookies to track watched episodes and previously viewed anime, ensuring a personalized and seamless user experience.",
     image: "/anime.png",
     link: "https://noonu.vercel.app/",
+    status: "live",
   },
   {
     name: "Moonu",
@@ -235,6 +245,7 @@ export const projects = [
     desc: "A platform designed for manga reading, built with Next.js and utilizing Tanstack Query for efficient API request management. The site features server-side caching for optimal performance and uses cookies to track read chapters and previously viewed manga, ensuring a personalized and seamless user experience ( credit to mangadex API ).",
     image: "/manga.png",
     link: "https://moonu.vercel.app/",
+    status: "live",
   },
   {
     name: "Lets Be Friend’s",
@@ -242,6 +253,7 @@ export const projects = [
     desc: "Let's Be Friends is a social networking app built with React 18, featuring a page-based router for intuitive navigation. The app leverages Appwrite for backend services and integrates Node.js with Express to enhance security, particularly for its messaging and payment features. Given the high level of user interaction, stringent document security measures are implemented. The application is hosted on Hostinger and utilizes Tailwind CSS and Shadcn for modern and responsive design. For the payment processing, Let's Be Friends uses PayMongo, ensuring secure and seamless transactions.",
     image: "/lbf.png",
     link: "https://letsbefriends.site/",
+    status: "down",
   },
   {
     name: "Personalized Gallery",
@@ -249,12 +261,22 @@ export const projects = [
     desc: "Personalized Gallery is an innovative app designed to offer users a curated and personalized collection of images and media. Built using the T3 Stack, which includes Next.js, TypeScript, and Tailwind CSS, the app provides a smooth and modern user experience. It leverages Drizzle ORM for seamless database interactions with PostgreSQL, ensuring robust data management and type safety across the application. Deployed on Vercel, Personalized Gallery guarantees high performance and reliability. The app also integrates PostHog for advanced analytics, allowing for detailed insights into user behavior and app usage, which helps in continuously refining and enhancing the user experience.",
     image: "/t3gallery.png",
     link: "https://gel-gallery.vercel.app/",
+    status: "live",
   },
   {
     name: "LayLands",
     nameDesc: "Web & Mobile App",
     desc: "A platform designed for manga reading, built with Next.js and utilizing Tanstack Query for efficient API request management. The site features server-side caching for optimal performance and uses cookies to track read chapters and previously viewed manga, ensuring a personalized and seamless user experience ( credit to mangadex API ).",
     image: "/layland.png",
-    link: "https://moonu.vercel.app/",
+    link: "Under Development",
+    status: "upcoming",
+  },
+  {
+    name: "Mihon",
+    nameDesc: "web for discovering anime's",
+    desc: "A Platform designed for Discovering anime, built with plaine HTML, CSS and Javascript. with the help of Anime API https://api.jikan.moe/v4/top/anime.",
+    image: "/mihon.png",
+    link: "https://mihon-angelo.tiiny.site/",
+    status: "live",
   },
 ];
