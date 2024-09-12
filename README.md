@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Portfolio
 
-## Getting Started
+Welcome to my personal portfolio! This website showcases my work, skills, and projects, giving you a comprehensive view of who I am and what I do as a developer.
 
-First, run the development server:
+## Technologies I Use
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I have experience working with a wide range of technologies in web and mobile development. Below are some of the key tools and frameworks I use regularly:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **React.js** – for building user interfaces
+- **Next.js** – for server-side rendering and static site generation
+- **JavaScript (ES6+)** – modern JavaScript features
+- **HTML5 & CSS3** – for building semantic and responsive layouts
+- **Tailwind CSS** – utility-first CSS framework
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Backend
 
-## Learn More
+- **Node.js** – for building server-side applications
+- **Express.js** – for developing web APIs
+- **Appwrite** – backend-as-a-service for managing databases, authentication, etc.
 
-To learn more about Next.js, take a look at the following resources:
+### Databases
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **PostgreSQL** – relational database system
+- **MongoDB** – NoSQL database
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Tools & Platforms
 
-## Deploy on Vercel
+- **Git & GitHub** – version control and code collaboration
+- **Vercel** – for hosting and deploying web applications
+- **Expo** – for building and deploying React Native apps
+- **Mapbox** – for interactive maps in web and mobile apps
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Other
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **TypeScript** – for adding static types to JavaScript
+- **Drizzle ORM** – for managing database queries in TypeScript projects
