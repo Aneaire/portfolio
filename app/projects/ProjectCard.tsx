@@ -10,6 +10,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <p className="pb-1 text-sm">{project.desc}</p>
       {project.status === "upcoming" ? (
         <p className="text-orange-400">{project.link}</p>
+      ) : project.link.includes("letsbefriends") ? (
+        <a
+          className="text-blue-400"
+          target="_blank"
+          href={"https://lets-be-friends-ten.vercel.app"}
+        >
+          https://lets-be-friends-ten.vercel.app
+        </a>
       ) : (
         <a className="text-blue-400" target="_blank" href={project.link}>
           {project.link}
