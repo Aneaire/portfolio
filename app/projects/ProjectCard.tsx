@@ -8,21 +8,18 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <span className="font-regular text-sm">({project.nameDesc})</span>
       </span>
       <p className="pb-1 text-sm">{project.desc}</p>
-      {project.status === "upcoming" ? (
-        <p className="text-orange-400">{project.link}</p>
-      ) : project.link.includes("letsbefriends") ? (
-        <a
-          className="text-blue-400"
-          target="_blank"
-          href={"https://lets-be-friends-ten.vercel.app"}
-        >
-          https://lets-be-friends-ten.vercel.app
-        </a>
-      ) : (
-        <a className="text-blue-400" target="_blank" href={project.link}>
-          {project.link}
-        </a>
-      )}
+      <a
+        className={
+          project.status === "upcoming"
+            ? "text-orange-400 underline"
+            : "text-blue-400 underline"
+        }
+        target="_blank"
+        rel="noopener noreferrer"
+        href={project.link}
+      >
+        {project.link}
+      </a>
       <img alt={project.name} src={project.image} />
     </div>
   );

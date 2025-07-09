@@ -1,39 +1,165 @@
 import { skills } from "@/constant/fixedText";
+import {
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Twitter,
+} from "lucide-react";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 import Hamburger from "./Hamburger";
 import HamburgerContent from "./HamburgerContent";
 import NavBar from "./NavBar";
 
 export const SideProfile = () => {
   return (
-    <div className="min-h-2/6 w-full rounded-br-xl bg-foreground p-4 text-center">
-      <div className="flex flex-col items-center justify-center">
-        <div className="relative size-32 object-cover">
-          <Image
-            src={
-              "https://utfs.io/f/069ce615-0670-4cd6-a9bc-51bc8f8341cc-15qpaj.jpg"
-            }
-            fill
-            alt="profile"
-            className="rounded-full"
-            sizes="150px"
-          />
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-foreground via-foreground to-foreground/95 p-6 text-center shadow-2xl backdrop-blur-sm transition-all duration-500">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
+      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-secondary/5 blur-3xl" />
+
+      <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
+        {/* Profile Image */}
+        <div className="group relative transition-all duration-300">
+          <div className="relative size-36 overflow-hidden rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1 shadow-xl">
+            <div className="relative size-full overflow-hidden rounded-full bg-background">
+              <Image
+                src="https://utfs.io/f/069ce615-0670-4cd6-a9bc-51bc8f8341cc-15qpaj.jpg"
+                fill
+                alt="Angelo S Santiago - Profile"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="150px"
+                priority
+              />
+            </div>
+          </div>
+          {/* Online status indicator */}
+          <div className="absolute bottom-2 right-2 h-4 w-4 rounded-full border-2 border-background bg-green-500 shadow-lg">
+            <div className="absolute inset-0 animate-ping rounded-full bg-green-500 opacity-75" />
+          </div>
         </div>
-        <div className="pt-2">
-          <h1 className="text-2xl font-bold">Angelo S Santiago</h1>
-          <p className="mx-auto max-w-lg break-all font-montserrat text-sm leading-5">
-            Passionate developer deeply engaged in coding and technology,
-            constantly seeking to improve skills and contribute innovative
-            solutions
-          </p>
-          <span className="mx-auto mt-3 flex max-w-lg flex-wrap items-center justify-center gap-1">
+
+        {/* Name and Title */}
+        <div className="space-y-2 transition-all duration-300">
+          <h1 className="text-3xl font-bold tracking-tight text-background">
+            Angelo S Santiago
+          </h1>
+          <div className="flex items-center justify-center gap-2 text-background/80">
+            <div className="h-1 w-1 rounded-full bg-primary" />
+            <span className="text-sm font-medium">Full Stack Developer</span>
+            <div className="h-1 w-1 rounded-full bg-primary" />
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="mx-auto max-w-xs text-sm font-medium leading-relaxed text-background/90 transition-all duration-300">
+          Passionate developer deeply engaged in coding and technology,
+          constantly seeking to improve skills and contribute innovative
+          solutions
+        </p>
+
+        {/* Contact Info */}
+        <div className="space-y-2 text-background/80 transition-all duration-300">
+          <div className="flex items-center justify-center gap-2 text-xs">
+            <MapPin className="h-3 w-3" />
+            <span>Philippines, Pampanga</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 text-xs">
+            <Mail className="h-3 w-3" />
+            <span>gelosantiago.dev@gmail.com</span>
+          </div>
+        </div>
+
+        <Separator className="my-4 bg-background/20" />
+
+        {/* Skills */}
+        <div className="w-full transition-all duration-300">
+          <h3 className="mb-3 text-sm font-semibold text-background/90">
+            Skills & Technologies
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
             {skills.map((skill, index) => (
-              <Badge className="text-[12px]" key={index + 1}>
-                {skill}
-              </Badge>
+              <div
+                key={skill}
+                className="transition-transform duration-200 hover:scale-105 active:scale-95"
+              >
+                <Badge
+                  variant="secondary"
+                  className="cursor-pointer border-background/20 bg-background/15 text-[11px] font-medium text-background transition-colors hover:bg-background/25"
+                >
+                  {skill}
+                </Badge>
+              </div>
             ))}
-          </span>
+          </div>
+        </div>
+
+        <Separator className="my-4 bg-background/20" />
+
+        {/* Social Links */}
+        <div className="flex gap-3 transition-all duration-300">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-9 w-9 p-0 text-background/80 hover:bg-background/15 hover:text-background"
+            asChild
+          >
+            <a
+              href="https://github.com/Aneaire"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-9 w-9 p-0 text-background/80 hover:bg-background/15 hover:text-background"
+            asChild
+          >
+            <a
+              href="www.linkedin.com/in/angelo-santiago-842083318"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-9 w-9 p-0 text-background/80 hover:bg-background/15 hover:text-background"
+            asChild
+          >
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+
+        {/* Download Resume */}
+        <div className="pt-2 transition-all duration-300">
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-background/30 bg-background/10 text-background transition-all duration-200 hover:bg-background/20 hover:text-background"
+            asChild
+          >
+            <a href="/resume.pdf" download>
+              <Download className="mr-2 h-4 w-4" />
+              Download CV
+            </a>
+          </Button>
         </div>
       </div>
     </div>
@@ -47,10 +173,13 @@ const SideBar = () => {
       <HamburgerContent />
 
       {/* Large screen */}
-      <div className="sticky left-0 top-0 hidden h-screen max-h-screen w-3/12 min-w-[370px] flex-col space-y-3 text-background lg:flex">
+      <div className="sticky left-0 top-0 hidden h-screen max-h-screen w-3/12 min-w-[370px] flex-col space-y-4 p-4 text-background transition-all duration-500 lg:flex">
         <SideProfile />
-        <NavBar />
+        <div className="transition-all duration-500">
+          <NavBar />
+        </div>
       </div>
+
       <Hamburger />
     </>
   );

@@ -24,7 +24,7 @@ export default function Home() {
         </div>
       </AddOn>
       <AddOn goto="/projects" title="Main Frameworks">
-        <ProjectCard project={projects[2]} />
+        <ProjectCard project={projects[1]} />
       </AddOn>
     </Container>
   );

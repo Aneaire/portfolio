@@ -1,24 +1,11 @@
 export const skills = [
   "TypeScript",
-  // Frontend Development
-  "React",
-  "React Native",
-  "NextJS",
-  "TailwindCSS",
-
-  // Backend Development
-  "Express",
-  "Appwrite",
-  "NodeJS",
-
-  // Database
-  "Postgres",
-  "Supabase",
-  "Drizzle",
-
-  // DevOps and Tools
-  "Docker",
-  "Git",
+  "React/Native",
+  "Back-end",
+  "PostgreSQL",
+  "Zapier",
+  "N8N",
+  "AI tools",
 ];
 
 export const homeText = {
@@ -231,6 +218,22 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "AI Companion",
+    nameDesc: "AI-Powered Therapy Chat App",
+    desc: "AICompanion is a real-time chat app for personalized, AI-powered therapeutic conversations. Users interact with a virtual therapist, with features like a live chat page and an impersonate mode for testing different user perspectives. Built with React, Hono, Drizzle ORM, Zustand, and TanStack Query, and powered by Google’s Gemini AI for context-aware, empathetic responses.",
+    image: "/aicompanion.png",
+    link: "https://ai-smart-therapy.vercel.app/",
+    status: "upcoming",
+  },
+  {
+    name: "SchoolSync Scheduler",
+    nameDesc: "Scheduler App",
+    desc: "Scheduler is a web-based application for efficiently managing and organizing class schedules in educational institutions. Built with Next.js and TypeScript, it features a modern tech stack including React for the frontend, Drizzle ORM for database management, TursoDB for data storage, and TanStack tools (such as React Query) for advanced data fetching and state management. The application is structured with well-defined API routes to handle backend operations, while the frontend seamlessly interacts with these APIs to provide a responsive and user-friendly scheduling experience. This setup streamlines the assignment of courses, teachers, rooms, and sections, helping administrators avoid conflicts and optimize scheduling.",
+    image: "/scheduler.png",
+    link: "https://school-schedule-management-frds.vercel.app/",
+    status: "live",
+  },
   {
     name: "Noonu",
     nameDesc: "Anime Streaming App",

@@ -1,9 +1,16 @@
 import GlowingDotsBackground from "@/components/bg/GlowingDotsBackground";
+import ClientLoadingManager from "@/components/ClientLoadingManager";
 import SideBar from "@/components/sidebar/SideBar";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Montserrat, Poppins } from "next/font/google";
+import React from "react";
 import "./globals.css";
+
+const LoadingOverlay = dynamic(() => import("@/components/ui/LoadingOverlay"), {
+  ssr: false,
+});
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,10 +37,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} ${montserrat.className} dark`}>
-        <div className="flex gap-5">
-          <SideBar />
-          <div className="flex-1 px-4 py-2">{children}</div>
-        </div>
+        <ClientLoadingManager>
+          <div className="flex gap-5">
+            <SideBar />
+            <div className="flex-1 px-4 py-2">{children}</div>
+          </div>
+        </ClientLoadingManager>
         <GlowingDotsBackground />
         <Toaster />
       </body>
