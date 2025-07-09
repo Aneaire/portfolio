@@ -206,6 +206,20 @@ export const skillList = [
     alt: "Mapbox icon representing a map API for custom maps in web and mobile applications",
     link: "https://www.mapbox.com/",
   },
+  {
+    name: "N8N",
+    icon: "/n8n.svg",
+    desc: "n8n is a powerful workflow automation tool that enables you to connect various apps and automate tasks with a visual interface.",
+    alt: "n8n icon representing a workflow automation tool for connecting apps and automating tasks",
+    link: "https://n8n.io/",
+  },
+  {
+    name: "Zapier",
+    icon: "/zapier.png",
+    desc: "Zapier is a popular automation platform that allows you to integrate and automate workflows between thousands of apps without code.",
+    alt: "Zapier icon representing an automation platform for integrating and automating workflows",
+    link: "https://zapier.com/",
+  },
 ];
 
 export type Project = {
@@ -265,14 +279,6 @@ export const projects: Project[] = [
     image: "/t3gallery.png",
     link: "https://gel-gallery.vercel.app/",
     status: "live",
-  },
-  {
-    name: "LayLands",
-    nameDesc: "Web & Mobile App",
-    desc: "A platform designed for manga reading, built with Next.js and utilizing Tanstack Query for efficient API request management. The site features server-side caching for optimal performance and uses cookies to track read chapters and previously viewed manga, ensuring a personalized and seamless user experience ( credit to mangadex API ).",
-    image: "/layland.png",
-    link: "Under Development",
-    status: "upcoming",
   },
   {
     name: "Mihon",
