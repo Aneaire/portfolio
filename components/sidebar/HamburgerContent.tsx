@@ -11,7 +11,7 @@ const HamburgerContent = () => {
   if (!hamburgerShown) return null;
 
   return (
-    <div className="fixed left-0 top-0 z-10 flex h-screen max-h-screen w-full flex-col text-background lg:hidden">
+    <div className="fixed left-0 top-0 z-10 flex h-screen max-h-screen w-full flex-col overflow-y-auto pb-8 text-background lg:hidden">
       <div className="relative flex flex-1 flex-col">
         <SideProfile />
         <NavBar />

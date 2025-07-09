@@ -17,7 +17,7 @@ import NavBar from "./NavBar";
 
 export const SideProfile = () => {
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-foreground via-foreground to-foreground/95 p-6 text-center shadow-2xl backdrop-blur-sm transition-all duration-500">
+    <div className="relative overflow-hidden bg-gradient-to-br from-foreground via-foreground to-foreground/95 p-6 text-center backdrop-blur-sm transition-all duration-500 md:rounded-2xl md:shadow-2xl">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
       <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-3xl" />
