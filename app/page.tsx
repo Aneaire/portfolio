@@ -11,7 +11,7 @@ export default function Home() {
         <p className="font-mono">{homeText.description}</p>
         {homeText.others.map((text) => (
           <div key={text.title} className="space-y-1">
-            <h5 className="font-poppins font-medium">~ {text.title}</h5>{" "}
+            <h5 className="font-poppins font-medium">~ {text.title}</h5>
             <p className="font-mono text-sm">{text.description}</p>
           </div>
         ))}
