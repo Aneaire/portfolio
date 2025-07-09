@@ -123,6 +123,7 @@
   filter: blur(30px);
   z-index: 0;
   will-change: transform;
+  animation: floatingMotion 30s ease-in-out infinite;
 }
 
 /* Legacy support for existing dots */
@@ -158,6 +159,22 @@
   50% {
     opacity: 1;
     transform: translateZ(0) scale(1.05);
+  }
+}
+
+@keyframes floatingMotion {
+  0%,
+  100% {
+    transform: translateZ(0) translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateZ(0) translateX(50px) translateY(-25px) rotate(90deg);
+  }
+  50% {
+    transform: translateZ(0) translateX(25px) translateY(0) rotate(180deg);
+  }
+  75% {
+    transform: translateZ(0) translateX(-25px) translateY(25px) rotate(270deg);
   }
 }
 
@@ -229,6 +246,10 @@
 
   .gradientOverlay {
     opacity: 0.5;
+  }
+
+  .floatingShape {
+    transform: translateZ(0);
   }
 }
 

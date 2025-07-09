@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./GlowingDotsBackground.module.css";
 
@@ -23,6 +23,10 @@ const GlowingDotsBackground = () => {
   const mouseRef = useRef({ x: 0, y: 0 });
   const lastFrameTime = useRef(0);
   const [isClient, setIsClient] = useState(false);
+  const [animateRef] = useAutoAnimate({
+    duration: 300,
+    easing: "ease-in-out",
+  });
 
   // Optimized color palette - pre-computed values
   const colors = useMemo(
@@ -42,7 +46,7 @@ const GlowingDotsBackground = () => {
     const isLowPerformance = navigator.hardwareConcurrency < 4;
 
     if (isMobile || isLowPerformance) return 15;
-    return 25; // Reduced from 80
+    return 25;
   }, []);
 
   // Initialize particles only once
@@ -56,7 +60,7 @@ const GlowingDotsBackground = () => {
       particles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.3, // Reduced velocity
+        vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
         size: Math.random() * 2 + 1,
         opacity: 0.5,
@@ -90,7 +94,7 @@ const GlowingDotsBackground = () => {
       throttleTimer = setTimeout(() => {
         handleMouseMove(e);
         throttleTimer = null as any;
-      }, 16); // ~60fps throttling
+      }, 16);
     };
 
     window.addEventListener("mousemove", throttledMouseMove, { passive: true });
@@ -112,7 +116,7 @@ const GlowingDotsBackground = () => {
 
     // Set canvas size
     const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2); // Limit DPR for performance
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = window.innerWidth + "px";
@@ -159,7 +163,7 @@ const GlowingDotsBackground = () => {
           particle.y = Math.max(0, Math.min(window.innerHeight, particle.y));
         }
 
-        // Simple mouse interaction (less intensive)
+        // Simple mouse interaction
         const dx = mouse.x - particle.x;
         const dy = mouse.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -173,7 +177,7 @@ const GlowingDotsBackground = () => {
         // Update opacity with simple sine wave
         particle.opacity = particle.baseOpacity + Math.sin(time + i) * 0.2;
 
-        // Draw particle (simplified)
+        // Draw particle
         ctx.save();
         ctx.globalAlpha = particle.opacity;
         ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
@@ -184,7 +188,6 @@ const GlowingDotsBackground = () => {
 
         // Draw connections (reduced checks)
         if (i % 2 === 0) {
-          // Only check every other particle
           for (let j = i + 1; j < particles.length; j += 2) {
             const other = particles[j];
             const dx2 = particle.x - other.x;
@@ -219,11 +222,11 @@ const GlowingDotsBackground = () => {
     };
   }, [isClient, colors]);
 
-  // Simplified static dots (reduced count)
+  // Simplified static dots with AutoAnimate
   const staticDots = useMemo(() => {
     if (!isClient) return [];
 
-    const count = getParticleCount() / 2; // Half the particles as static dots
+    const count = getParticleCount() / 2;
     return Array.from({ length: count }, (_, i) => {
       const color = colors[i % colors.length];
       return (
@@ -260,23 +263,13 @@ const GlowingDotsBackground = () => {
         style={{ pointerEvents: "none" }}
       />
 
-      {/* Reduced static dots */}
-      <div className={styles.staticDotsContainer}>{staticDots}</div>
+      {/* AutoAnimate container for static dots */}
+      <div ref={animateRef} className={styles.staticDotsContainer}>
+        {staticDots}
+      </div>
 
-      {/* Single floating shape */}
-      <motion.div
-        className={styles.floatingShape}
-        animate={{
-          x: [0, 50, 0],
-          y: [0, -25, 0],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
+      {/* Floating shape with CSS animation */}
+      <div className={styles.floatingShape} />
     </div>
   );
 };
