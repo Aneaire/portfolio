@@ -2,7 +2,7 @@ export const skills = [
   "TypeScript",
   "React/Native",
   "Back-end",
-  "PostgreSQL",
+  "Node JS / Hono",
   "Zapier",
   "N8N",
   "AI tools",
