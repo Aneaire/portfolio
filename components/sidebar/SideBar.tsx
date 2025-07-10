@@ -1,4 +1,3 @@
-import { skills } from "@/constant/fixedText";
 import {
   Download,
   Github,
@@ -8,7 +7,6 @@ import {
   Twitter,
 } from "lucide-react";
 import Image from "next/image";
-import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import Hamburger from "./Hamburger";
@@ -17,7 +15,7 @@ import NavBar from "./NavBar";
 
 export const SideProfile = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-foreground via-foreground to-foreground/95 p-6 text-center backdrop-blur-sm transition-all duration-500 md:rounded-2xl md:shadow-2xl">
+    <div className="relative bg-gradient-to-br from-foreground via-foreground to-foreground/95 p-6 text-center backdrop-blur-sm transition-all duration-500 md:rounded-2xl md:shadow-2xl">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
       <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-3xl" />
@@ -75,31 +73,7 @@ export const SideProfile = () => {
           </div>
         </div>
 
-        <Separator className="my-4 bg-background/20" />
-
-        {/* Skills */}
-        <div className="w-full transition-all duration-300">
-          <h3 className="mb-3 text-sm font-semibold text-background/90">
-            Skills & Technologies
-          </h3>
-          <div className="flex flex-wrap items-center justify-center gap-1.5">
-            {skills.map((skill, index) => (
-              <div
-                key={skill}
-                className="transition-transform duration-200 hover:scale-105 active:scale-95"
-              >
-                <Badge
-                  variant="secondary"
-                  className="cursor-pointer border-background/20 bg-background/15 text-[11px] font-medium text-background transition-colors hover:bg-background/25"
-                >
-                  {skill}
-                </Badge>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <Separator className="my-4 bg-background/20" />
+        <Separator className="bg-background/20" />
 
         {/* Social Links */}
         <div className="flex gap-3 transition-all duration-300">
@@ -148,7 +122,7 @@ export const SideProfile = () => {
         </div>
 
         {/* Download Resume */}
-        <div className="pt-2 transition-all duration-300">
+        <div className="transition-all duration-300">
           <Button
             variant="outline"
             size="sm"
@@ -175,7 +149,7 @@ const SideBar = () => {
       {/* Large screen */}
       <div className="sticky left-0 top-0 hidden h-screen max-h-screen w-3/12 min-w-[370px] flex-col space-y-4 p-4 text-background transition-all duration-500 lg:flex">
         <SideProfile />
-        <div className="transition-all duration-500">
+        <div className="h-full transition-all duration-500">
           <NavBar />
         </div>
       </div>

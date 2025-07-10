@@ -16,7 +16,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-full flex-1 bg-foreground p-4">
+    <div className="h-full w-full flex-1 rounded-sm bg-foreground p-4">
       <div className="flex h-full flex-col gap-5">
         {navLink.map((link) => (
           <Button

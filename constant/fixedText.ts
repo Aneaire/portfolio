@@ -39,7 +39,7 @@ export const homeText = {
 export const personalInfo = {
   name: "Angelo Santiago",
   location: "Pampanga, Philippines",
-  email: "aneaire010@gmail.com",
+  email: "gelosantiago.dev@gmail.com",
   number: "09757051714",
 };
 

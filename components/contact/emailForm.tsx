@@ -52,6 +52,7 @@ const EmailForm = () => {
           toast("Message failed to send. Please try again.", {
             style: { background: "red", color: "white" },
           });
+          console.error("Email sending error:", error);
           toast.dismiss("message-sending");
           setSending(false);
         },
