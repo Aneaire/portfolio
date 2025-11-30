@@ -28,6 +28,17 @@ const ServiceCard = ({ service, index }: {
 export default function Home() {
   return (
     <Container title={homeText.title}>
+      {/* Main Frameworks section */}
+      <section className="mb-12">
+        <AddOn goto="/skills" title="Main Frameworks">
+          <div className="skill-card-wrapper pt-1">
+            {skillList.slice(0, 4).map((skill) => (
+              <SkillCard key={skill.name} {...skill} />
+            ))}
+          </div>
+        </AddOn>
+      </section>
+
       <div className="space-y-8">
         {/* Main description */}
         <div className="relative">
@@ -49,15 +60,8 @@ export default function Home() {
         </div>
       </div>
       
-      {/* Skills and Projects sections */}
-      <section className="mt-12 space-y-8">
-        <AddOn goto="/skills" title="Main Frameworks">
-          <div className="skill-card-wrapper pt-1">
-            {skillList.slice(0, 4).map((skill) => (
-              <SkillCard key={skill.name} {...skill} />
-            ))}
-          </div>
-        </AddOn>
+      {/* Featured Project section */}
+      <section className="mt-4">
         <AddOn goto="/projects" title="Featured Project">
           <ProjectCard project={projects[1]} />
         </AddOn>
