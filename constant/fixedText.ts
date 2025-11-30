@@ -9,29 +9,29 @@ export const skills = [
 ];
 
 export const homeText = {
-  title: "The Journey of a Productive Developer",
+  title: "Software Developer & AI Automation & Data Engineering Specialist",
   description:
-    "Hello! I'm Angelo Santiago, a passionate and productive developer dedicated to crafting elegant and efficient solutions. In the dynamic world of technology, being productive isn't just about writing code; it's about mastering workflows, optimizing processes, and continuously learning. I believe that productivity stems from a blend of technical expertise, time management, and a collaborative spirit. My approach ensures that I deliver high-quality projects that not only meet but exceed expectations.",
+    "Hello! I'm Angelo Santiago, a Software Developer specializing in AI-powered automation and data engineering solutions. I combine strong software engineering fundamentals with cutting-edge AI tools and data processing technologies to build applications that not only function flawlessly but also drive business efficiency. My expertise spans full-stack development, workflow automation, AI-enhanced development practices, and scalable data pipeline architecture using Claude, Codex, and OpenCode. This comprehensive focus ensures clients receive robust, scalable software solutions that deliver 40-60% faster development cycles while maintaining exceptional quality and reducing operational costs.",
   others: [
     {
-      title: "Embracing Continuous Learning",
+      title: "Full-Stack Software Development",
       description:
-        "Productivity, to me, is also about staying curious and adaptable. The tech landscape is constantly evolving, and I thrive on exploring new trends, tools, and methodologies. Whether it's diving into a new programming language, experimenting with the latest frameworks, or understanding emerging technologies like AI and cloud computing, I am always eager to expand my skill set. This commitment to learning ensures that my solutions are not only current but also innovative and robust.",
+        "I build robust, scalable applications using modern frameworks like React, Next.js, Node.js, and TypeScript. My software engineering expertise ensures clean, maintainable code with proper architecture, testing, and deployment practices. From responsive web applications to mobile solutions, I deliver high-quality software that meets business requirements while following industry best practices for security, performance, and user experience.",
     },
     {
-      title: "Building and Collaborating",
+      title: "AI-Enhanced Workflow Automation",
       description:
-        "Being a productive developer means more than just individual work. I value collaboration and believe in the power of community. Engaging with other developers, participating in open-source projects, and contributing to developer communities are integral parts of my professional life. This collaborative spirit helps me stay connected with the broader tech ecosystem, learn from others, and share my knowledge.",
+        "I integrate AI automation with traditional software development to create intelligent workflows that boost productivity. Using Zapier, N8N, and custom Google Cloud Functions, I eliminate repetitive tasks and deliver 25%+ productivity gains. My solutions combine robust software architecture with AI-powered automation, ensuring reliable systems that handle complex business processes while reducing manual errors and operational overhead.",
     },
     {
-      title: "Crafting User-Centric Solutions",
+      title: "Cloud Architecture & Scalable Solutions",
       description:
-        "At the heart of my work is a focus on the end-user. I aim to create intuitive and user-friendly applications that provide real value. My development process involves constant feedback loops, user testing, and a keen eye on user experience (UX) principles. This approach helps in building applications that are not only functional but also delightful to use.",
+        "I design and deploy scalable cloud solutions using Google Cloud services, including Cloud Functions, BigQuery, and Cloud Run. My cloud architecture expertise ensures applications can handle growth seamlessly while maintaining optimal performance and cost-efficiency. I implement robust infrastructure as code practices, proper security measures, and monitoring solutions to deliver reliable, production-ready systems that scale with business needs.",
     },
     {
-      title: "Sharing Knowledge and Experiences",
+      title: "AI-Powered Development Acceleration",
       description:
-        "I believe in sharing what I learn. Through blogs, talks, and tutorials, I enjoy teaching others and demystifying complex concepts. This not only reinforces my understanding but also helps the community grow. Whether you're a seasoned developer or just starting out, I hope my insights can inspire and assist you in your own journey.",
+        "I leverage AI tools like Claude, Codex, and OpenCode to enhance traditional software development, achieving 40-60% faster delivery without compromising quality. This AI-assisted approach combines solid engineering practices with intelligent code generation, automated testing, and rapid prototyping. The result is faster time-to-market, reduced development costs, and competitive advantage while maintaining the reliability and maintainability of well-engineered software solutions.",
     },
   ],
 };
@@ -220,6 +220,20 @@ export const skillList = [
     alt: "Zapier icon representing an automation platform for integrating and automating workflows",
     link: "https://zapier.com/",
   },
+  {
+    name: "Claude",
+    icon: "/claude.svg",
+    desc: "Claude is an advanced AI assistant that accelerates software development through intelligent code generation, debugging, and optimization.",
+    alt: "Claude icon representing an AI assistant for accelerated software development",
+    link: "https://claude.ai/",
+  },
+  {
+    name: "OpenCode",
+    icon: "/opencode.svg",
+    desc: "OpenCode is an AI-powered development tool that enhances coding productivity with intelligent assistance and automation.",
+    alt: "OpenCode icon representing an AI-powered development tool for enhanced productivity",
+    link: "https://opencode.ai/",
+  },
 ];
 
 export type Project = {
@@ -232,12 +246,12 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
+{
     name: "AI Companion",
     nameDesc: "AI-Powered Therapy Chat App",
-    desc: "AICompanion is a real-time chat app for personalized, AI-powered therapeutic conversations. Users interact with a virtual therapist, with features like a live chat page and an impersonate mode for testing different user perspectives. Built with React, Hono, Drizzle ORM, Zustand, and TanStack Query, and powered by Google’s Gemini AI for context-aware, empathetic responses.",
+    desc: "AICompanion is a real-time chat app for personalized, AI-powered therapeutic conversations. Users interact with a virtual therapist and can connect with human counselors, featuring a live chat page, counselor matching system, and an impersonate mode for testing different user perspectives. Built with React, Hono, Drizzle ORM, Zustand, and TanStack Query, and powered by Google's Gemini AI for context-aware, empathetic responses.",
     image: "/aicompanion.png",
-    link: "https://ai-smart-therapy.vercel.app/",
+    link: "https://aicompanion-mental-health.onrender.com",
     status: "upcoming",
   },
   {

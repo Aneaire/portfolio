@@ -23,7 +23,7 @@ export default function Home() {
           ))}
         </div>
       </AddOn>
-      <AddOn goto="/projects" title="Main Frameworks">
+      <AddOn goto="/projects" title="Featured Project">
         <ProjectCard project={projects[1]} />
       </AddOn>
     </Container>

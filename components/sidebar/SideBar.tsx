@@ -49,16 +49,16 @@ export const SideProfile = () => {
           </h1>
           <div className="flex items-center justify-center gap-2 text-background/80">
             <div className="h-1 w-1 rounded-full bg-primary" />
-            <span className="text-sm font-medium">Full Stack Developer</span>
+            <span className="text-sm font-medium">Full Stack Dev / AI Automation / Data Engineering</span>
             <div className="h-1 w-1 rounded-full bg-primary" />
           </div>
         </div>
 
         {/* Description */}
         <p className="mx-auto max-w-xs text-sm font-medium leading-relaxed text-background/90 transition-all duration-300">
-          Passionate developer deeply engaged in coding and technology,
-          constantly seeking to improve skills and contribute innovative
-          solutions
+          Software developer specializing in AI automation and data engineering.
+          Building robust applications and data pipelines while leveraging AI to
+          accelerate development and drive business efficiency.
         </p>
 
         {/* Contact Info */}

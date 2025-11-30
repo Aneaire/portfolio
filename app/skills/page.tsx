@@ -5,14 +5,16 @@ import { memo } from "react";
 
 const SkillPage = () => {
   return (
-    <Container title="Skills and Expertize">
+<Container title="Skills and Expertise">
       <p className="mt-2 font-mono text-lg">
-        I am adept at adopting new technologies and tools, whether for web or
-        mobile applications. My adaptability ensures that I can quickly get up
-        to speed with whatever is required to deliver exceptional results. I’m
-        always willing to put in the hard work needed to learn new skills, so if
-        there’s something specific you need me to master, I’ll do whatever it
-        takes to get the job done.
+        As a Software Developer specializing in AI Automation and Data Engineering,
+        I combine strong engineering fundamentals with cutting-edge automation and
+        data processing tools to build solutions that drive business efficiency.
+        My expertise spans full-stack development, workflow automation, AI-enhanced
+        development practices, and scalable data pipeline architecture. I leverage
+        modern frameworks, AI tools, and data engineering technologies to deliver
+        robust applications 40-60% faster while maintaining exceptional quality and
+        reducing operational costs for businesses.
       </p>
       <div className="skill-card-wrapper pt-7">
         {skillList.map((skill) => (
