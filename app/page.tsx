@@ -33,11 +33,11 @@ export default function Home() {
         <AddOn goto="/skills" title="Main Frameworks">
           <div className="skill-card-wrapper pt-1">
             {[
-              skillList.find(skill => skill.name === "TypeScript"),
-              skillList.find(skill => skill.name === "React"),
-              skillList.find(skill => skill.name === "N8N"),
-              skillList.find(skill => skill.name === "React Native")
-            ].filter(Boolean).map((skill) => (
+              skillList.find(skill => skill.name === "TypeScript")!,
+              skillList.find(skill => skill.name === "React")!,
+              skillList.find(skill => skill.name === "N8N")!,
+              skillList.find(skill => skill.name === "React Native")!
+            ].map((skill) => (
               <SkillCard key={skill.name} {...skill} />
             ))}
           </div>
