@@ -45,7 +45,7 @@ export const SideProfile = () => {
         {/* Name and Title */}
         <div className="space-y-2 transition-all duration-300">
           <h1 className="text-3xl font-bold tracking-tight text-background">
-            Angelo S Santiago
+            Angelo Santiago
           </h1>
           <div className="flex items-center justify-center gap-2 text-background/80">
             <div className="h-1 w-1 rounded-full bg-primary" />

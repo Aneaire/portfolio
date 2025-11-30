@@ -78,4 +78,13 @@
   .input-form {
     @apply w-full rounded px-2 py-2 text-gray-900 placeholder:text-gray-900;
   }
+  .text-gradient {
+    @apply bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent;
+  }
+  .glass-effect {
+    @apply bg-background/50 backdrop-blur-sm border border-border/50;
+  }
+  .hover-lift {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg;
+  }
 }
