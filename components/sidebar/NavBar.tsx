@@ -27,7 +27,7 @@ const NavBar = () => {
             disabled={pathname === link.href}
             className={`relative mx-auto w-full max-w-[370px] overflow-hidden text-lg font-bold transition ${pathname != link.href && "hover:scale-95 hover:shadow-md"} ${
               link.variant == "accent" && "mt-auto"
-            } ${pathname === link.href && "opacity-75 cursor-not-allowed"}`}
+            } ${pathname === link.href && "cursor-not-allowed"}`}
             variant={link.variant}
           >
             {link.name}
