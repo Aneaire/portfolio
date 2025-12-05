@@ -3,6 +3,7 @@ import ClientLoadingManager from "@/components/ClientLoadingManager";
 import SideBar from "@/components/sidebar/SideBar";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Montserrat, Poppins } from "next/font/google";
@@ -49,6 +50,7 @@ export default function RootLayout({
         </ClientLoadingManager>
         <GlowingDotsBackground />
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
