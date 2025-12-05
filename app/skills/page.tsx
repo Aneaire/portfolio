@@ -1,5 +1,6 @@
 import Container from "@/components/Common/Container";
 import SkillCard from "@/components/Common/SkillCard";
+import Quote from "@/components/Common/Quote";
 import { skillList } from "@/constant/fixedText";
 import { memo } from "react";
 
@@ -21,6 +22,8 @@ const SkillPage = () => {
           <SkillCard key={skill.name} {...skill} />
         ))}
       </div>
+      
+      <Quote />
     </Container>
   );
 };

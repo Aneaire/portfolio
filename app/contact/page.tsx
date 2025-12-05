@@ -1,4 +1,5 @@
 import Container from "@/components/Common/Container";
+import Quote from "@/components/Common/Quote";
 import EmailForm from "@/components/contact/emailForm";
 import { Separator } from "@/components/ui/separator";
 import { personalInfo } from "@/constant/fixedText";
@@ -48,6 +49,8 @@ const ContactPage = () => {
           <EmailForm />
         </div>
       </div>
+      
+      <Quote />
     </Container>
   );
 };

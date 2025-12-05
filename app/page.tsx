@@ -1,5 +1,6 @@
 import Container from "@/components/Common/Container";
 import SkillCard from "@/components/Common/SkillCard";
+import Quote from "@/components/Common/Quote";
 import AddOn from "@/components/home/AddOn";
 import { homeText, projects, skillList } from "@/constant/fixedText";
 import ProjectCard from "./projects/ProjectCard";
@@ -71,6 +72,9 @@ export default function Home() {
           <ProjectCard project={projects[1]} />
         </AddOn>
       </section>
+      
+      {/* Quote section */}
+      <Quote />
     </Container>
   );
 }

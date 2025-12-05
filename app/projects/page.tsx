@@ -1,4 +1,5 @@
 import Container from "@/components/Common/Container";
+import Quote from "@/components/Common/Quote";
 import { projects } from "@/constant/fixedText";
 import ProjectCard from "./ProjectCard";
 
@@ -44,6 +45,8 @@ const ProjectsPage = () => {
           </div>
         </a>
       </div>
+      
+      <Quote />
     </Container>
   );
 };
