@@ -24,11 +24,11 @@ const NavBar = () => {
           <Button
             onClick={() => handleClick(link.href)}
             key={link.name}
-            disabled={pathname === link.href}
             className={`relative mx-auto w-full max-w-[370px] overflow-hidden text-lg font-bold transition ${pathname != link.href && "hover:scale-95 hover:shadow-md"} ${
               link.variant == "accent" && "mt-auto"
             } ${pathname === link.href && "cursor-not-allowed"}`}
             variant={link.variant}
+            style={{ pointerEvents: pathname === link.href ? 'none' : 'auto' }}
           >
             {link.name}
             {pathname === link.href && (
