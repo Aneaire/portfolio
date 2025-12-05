@@ -1,6 +1,7 @@
 import GlowingDotsBackground from "@/components/bg/GlowingDotsBackground";
 import ClientLoadingManager from "@/components/ClientLoadingManager";
 import SideBar from "@/components/sidebar/SideBar";
+import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -38,9 +39,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} ${montserrat.className} dark`}>
         <ClientLoadingManager>
-          <div className="flex gap-5">
-            <SideBar />
-            <div className="flex-1 px-4 py-2">{children}</div>
+          <div className="flex min-h-screen flex-col">
+            <div className="flex gap-5 flex-1">
+              <SideBar />
+              <main className="flex-1 px-4 py-2">{children}</main>
+            </div>
+            <Footer />
           </div>
         </ClientLoadingManager>
         <GlowingDotsBackground />
