@@ -9,10 +9,15 @@ export const skills = [
 ];
 
 export const homeText = {
-  title: "Software Developer & AI Automation & Data Engineering Specialist",
+  title: "Software Developer & Multi-agent AI Orchestration Specialist",
   description:
     "Hello! I'm Angelo Santiago, a Software Developer specializing in AI-powered automation and data engineering solutions. I combine strong software engineering fundamentals with cutting-edge AI tools and data processing technologies to build applications that not only function flawlessly but also drive business efficiency. My expertise spans full-stack development, workflow automation, AI-enhanced development practices, and scalable data pipeline architecture using Claude, Codex, and OpenCode. This comprehensive focus ensures clients receive robust, scalable software solutions that deliver 40-60% faster development cycles while maintaining exceptional quality and reducing operational costs.",
   others: [
+    {
+      title: "Multi-agent Orchestration & Agentic RAG Solutions",
+      description:
+        "I design and implement streamlined multi-agent systems powered by Agentic AI and RAG architectures. Using modern orchestration frameworks, I build intelligent agents that collaborate, reason, and deliver context-aware responses at scale. My solutions leverage advanced AI patterns to automate complex workflows, enhance decision-making, and ensure reliable, production-ready systems that adapt to evolving business requirements.",
+    },
     {
       title: "Full-Stack Software Development",
       description:
@@ -22,11 +27,6 @@ export const homeText = {
       title: "AI-Enhanced Workflow Automation",
       description:
         "I integrate AI automation with traditional software development to create intelligent workflows that boost productivity. Using Zapier, N8N, and custom Google Cloud Functions, I eliminate repetitive tasks and deliver 25%+ productivity gains. My solutions combine robust software architecture with AI-powered automation, ensuring reliable systems that handle complex business processes while reducing manual errors and operational overhead.",
-    },
-    {
-      title: "Cloud Architecture & Scalable Solutions",
-      description:
-        "I design and deploy scalable cloud solutions using Google Cloud services, including Cloud Functions, BigQuery, and Cloud Run. My cloud architecture expertise ensures applications can handle growth seamlessly while maintaining optimal performance and cost-efficiency. I implement robust infrastructure as code practices, proper security measures, and monitoring solutions to deliver reliable, production-ready systems that scale with business needs.",
     },
     {
       title: "AI-Powered Development Acceleration",
@@ -246,7 +246,7 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-{
+  {
     name: "AI Companion",
     nameDesc: "AI-Powered Therapy Chat App",
     desc: "AICompanion is a real-time chat app for personalized, AI-powered therapeutic conversations. Users interact with a virtual therapist and can connect with human counselors, featuring a live chat page, counselor matching system, and an impersonate mode for testing different user perspectives. Built with React, Hono, Drizzle ORM, Zustand, and TanStack Query, and powered by Google's Gemini AI for context-aware, empathetic responses.",
