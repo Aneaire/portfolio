@@ -1,13 +1,14 @@
 "use client";
+
 import { navLink } from "@/constant/fixedText";
 import { usePathname, useRouter } from "next/navigation";
 import useSideBarStore from "../store/sidebar-store";
 import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 const NavBar = () => {
   const router = useRouter();
   const pathname = usePathname();
-
   const { setHamburger, hamburgerShown } = useSideBarStore((state) => state);
 
   const handleClick = (href: string) => {
@@ -18,24 +19,31 @@ const NavBar = () => {
   };
 
   return (
-    <div className="h-full w-full flex-1 rounded-sm bg-foreground p-4">
-      <div className="flex h-full flex-col gap-5">
+    <div className="h-full w-full">
+      <div className="flex h-full flex-col gap-2">
         {navLink.map((link) => (
           <Button
             onClick={() => handleClick(link.href)}
             key={link.name}
-            className={`relative mx-auto w-full max-w-[370px] overflow-hidden text-lg font-bold transition ${pathname != link.href && "hover:scale-95 hover:shadow-md"} ${
-              link.variant == "accent" && "mt-auto"
-            } ${pathname === link.href && "cursor-not-allowed"}`}
-            variant={link.variant}
-            style={{ pointerEvents: pathname === link.href ? 'none' : 'auto' }}
-          >
-            {link.name}
-            {pathname === link.href && (
-              <div
-                className={`absolute right-0 top-0 h-full w-1.5 ${pathname === "/contact" ? "bg-blue-500" : "bg-accent"}`}
-              />
+            variant="ghost"
+            className={cn(
+              "relative w-full justify-start gap-3 px-4 py-6 text-sm font-medium transition-all duration-300",
+              pathname === link.href
+                ? "bg-primary/10 text-primary"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground",
             )}
+          >
+            {pathname === link.href && (
+              <div className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full bg-primary" />
+            )}
+            <span
+              className={cn(
+                "transition-transform duration-300",
+                pathname === link.href && "translate-x-1",
+              )}
+            >
+              {link.name}
+            </span>
           </Button>
         ))}
       </div>

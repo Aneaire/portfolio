@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Download,
   Github,
@@ -5,6 +7,7 @@ import {
   Mail,
   MapPin,
   Twitter,
+  FileText,
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
@@ -12,76 +15,84 @@ import { Separator } from "../ui/separator";
 import Hamburger from "./Hamburger";
 import HamburgerContent from "./HamburgerContent";
 import NavBar from "./NavBar";
+import { Badge } from "../ui/badge";
 
 export const SideProfile = () => {
   return (
-    <div className="relative bg-gradient-to-br from-foreground via-foreground to-foreground/95 p-6 text-center backdrop-blur-sm transition-all duration-500 md:rounded-2xl md:shadow-2xl">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-secondary/5 blur-3xl" />
+    <div className="glass-effect-strong relative overflow-hidden rounded-2xl p-6 text-center">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+      <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-primary via-violet-400 to-secondary" />
 
       <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
-        {/* Profile Image */}
-        <div className="group relative transition-all duration-300">
-          <div className="relative size-36 overflow-hidden rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 p-1 shadow-xl">
-            <div className="relative size-full overflow-hidden rounded-full bg-background">
-              <Image
-                src="https://utfs.io/f/069ce615-0670-4cd6-a9bc-51bc8f8341cc-15qpaj.jpg"
-                fill
-                alt="Angelo S Santiago - Profile"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="150px"
-                priority
-              />
-            </div>
+        <div className="group relative">
+          <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-primary to-secondary opacity-75 blur transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="relative size-28 overflow-hidden rounded-full bg-card">
+            <Image
+              src="https://utfs.io/f/069ce615-0670-4cd6-a9bc-51bc8f8341cc-15qpaj.jpg"
+              fill
+              alt="Angelo S Santiago - Profile"
+              className="object-cover"
+              sizes="112px"
+              priority
+            />
           </div>
-          {/* Online status indicator */}
-          <div className="absolute bottom-2 right-2 h-4 w-4 rounded-full border-2 border-background bg-green-500 shadow-lg">
-            <div className="absolute inset-0 animate-ping rounded-full bg-green-500 opacity-75" />
-          </div>
+          <div className="absolute bottom-1 right-1 h-4 w-4 animate-pulse rounded-full border-2 border-card bg-green-500" />
         </div>
 
-        {/* Name and Title */}
-        <div className="space-y-2 transition-all duration-300">
-          <h1 className="text-3xl font-bold tracking-tight text-background">
+        <div className="space-y-2">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
             Angelo Santiago
           </h1>
-          <div className="flex items-center justify-center gap-2 text-background/80">
-            <div className="h-1 w-1 rounded-full bg-primary" />
-            <span className="text-sm font-medium">Full Stack Dev / AI Automation / Data Engineering</span>
-            <div className="h-1 w-1 rounded-full bg-primary" />
-          </div>
-        </div>
-
-        {/* Description */}
-        <p className="mx-auto max-w-xs text-sm font-medium leading-relaxed text-background/90 transition-all duration-300">
-          Software developer specializing in AI automation and data engineering.
-          Building robust applications and data pipelines while leveraging AI to
-          accelerate development and drive business efficiency.
-        </p>
-
-        {/* Contact Info */}
-        <div className="space-y-2 text-background/80 transition-all duration-300">
-          <div className="flex items-center justify-center gap-2 text-xs">
+          <p className="text-sm font-medium text-muted-foreground">
+            Full Stack Developer
+          </p>
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <MapPin className="h-3 w-3" />
-            <span>Philippines, Pampanga</span>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs">
-            <Mail className="h-3 w-3" />
-            <span>gelosantiago.dev@gmail.com</span>
+            <span>Pampanga, Philippines</span>
           </div>
         </div>
 
-        <Separator className="bg-background/20" />
+        <div className="flex flex-wrap justify-center gap-2">
+          <Badge
+            variant="secondary"
+            className="border-primary/20 bg-primary/10 text-primary"
+          >
+            TypeScript
+          </Badge>
+          <Badge
+            variant="secondary"
+            className="border-secondary/20 bg-secondary/10 text-secondary"
+          >
+            React
+          </Badge>
+          <Badge
+            variant="secondary"
+            className="border-primary/20 bg-primary/10 text-primary"
+          >
+            AI/Automation
+          </Badge>
+        </div>
 
-        {/* Social Links */}
-        <div className="flex gap-3 transition-all duration-300">
+        <Separator className="bg-border/50" />
+
+        <div className="flex w-full flex-col gap-2 text-sm text-muted-foreground">
+          <a
+            href="mailto:gelosantiago.dev@gmail.com"
+            className="flex items-center justify-center gap-2 transition-colors hover:text-primary"
+          >
+            <Mail className="h-4 w-4" />
+            <span>gelosantiago.dev@gmail.com</span>
+          </a>
+        </div>
+
+        <Separator className="bg-border/50" />
+
+        <div className="flex justify-center gap-2">
           <Button
             variant="ghost"
-            size="sm"
-            className="h-9 w-9 p-0 text-background/80 hover:bg-background/15 hover:text-background"
+            size="icon"
             asChild
+            className="hover:bg-primary/10 hover:text-primary"
           >
             <a
               href="https://github.com/Aneaire"
@@ -93,9 +104,9 @@ export const SideProfile = () => {
           </Button>
           <Button
             variant="ghost"
-            size="sm"
-            className="h-9 w-9 p-0 text-background/80 hover:bg-background/15 hover:text-background"
+            size="icon"
             asChild
+            className="hover:bg-primary/10 hover:text-primary"
           >
             <a
               href="www.linkedin.com/in/angelo-santiago-842083318"
@@ -107,9 +118,9 @@ export const SideProfile = () => {
           </Button>
           <Button
             variant="ghost"
-            size="sm"
-            className="h-9 w-9 p-0 text-background/80 hover:bg-background/15 hover:text-background"
+            size="icon"
             asChild
+            className="hover:bg-primary/10 hover:text-primary"
           >
             <a
               href="https://twitter.com"
@@ -121,17 +132,26 @@ export const SideProfile = () => {
           </Button>
         </div>
 
-        {/* Download Resume */}
-        <div className="transition-all duration-300">
+        <div className="flex w-full gap-2">
           <Button
             variant="outline"
             size="sm"
-            className="border-background/30 bg-background/10 text-background transition-all duration-200 hover:bg-background/20 hover:text-background"
+            className="flex-1 border-primary/30 hover:bg-primary/10"
             asChild
           >
             <a href="/resume.pdf" download>
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
+              <FileText className="mr-2 h-4 w-4" />
+              Resume
+            </a>
+          </Button>
+          <Button
+            size="sm"
+            className="flex-1 bg-primary hover:bg-primary/90"
+            asChild
+          >
+            <a href="/contact">
+              <Mail className="mr-2 h-4 w-4" />
+              Contact
             </a>
           </Button>
         </div>
@@ -143,13 +163,11 @@ export const SideProfile = () => {
 const SideBar = () => {
   return (
     <>
-      {/* Mobile */}
       <HamburgerContent />
 
-      {/* Large screen */}
-      <div className="sticky left-0 top-0 hidden h-screen max-h-screen w-3/12 min-w-[370px] flex-col space-y-4 p-4 text-background transition-all duration-500 lg:flex">
+      <div className="sticky left-0 top-0 hidden h-screen max-h-screen w-80 flex-col space-y-4 p-4 lg:flex">
         <SideProfile />
-        <div className="h-full transition-all duration-500">
+        <div className="glass-effect-strong flex-1 rounded-xl p-2">
           <NavBar />
         </div>
       </div>

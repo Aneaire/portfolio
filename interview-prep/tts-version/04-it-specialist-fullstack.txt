@@ -1,0 +1,143 @@
+IT Specialist and Full-Stack Development Interview Questions and Answers
+
+Question 1: Walk through your typical tech stack and why you chose those technologies.
+
+Answer: Let me break down my primary stack by layer.
+
+For the frontend, I use React and Next.js with TypeScript. This gives me type safety, excellent developer experience, and server-side rendering capabilities.
+
+For styling, I use Tailwind CSS with Shadcn UI. This enables rapid development and provides a consistent design system.
+
+For the backend, I use Node.js with Hono. It's fast, lightweight, and has great TypeScript support.
+
+For the database, I use PostgreSQL with Drizzle ORM. This gives me type-safe queries with a reliable and scalable database.
+
+For authentication, I use either custom JWT or Supabase Auth, depending on whether I need flexibility or speed.
+
+For hosting, I use Vercel or Cloud Run for easy deployment and auto-scaling.
+
+For automation, I use N8N or Zapier to connect systems and automate workflows.
+
+Why this combination? It provides full TypeScript end-to-end for type safety, modern tooling that increases development speed, scalability from MVP to production, and a great developer experience that reduces bugs.
+
+Question 2: Explain how you approach database design for a new project.
+
+Answer: My process follows several steps.
+
+First, I understand the requirements. What data entities exist? How do they relate to each other?
+
+Second, I identify core entities like users, their actions, and business objects.
+
+Third, I define relationships. One-to-many relationships like users to orders. Many-to-many relationships like products to categories. And one-to-one relationships like users to profiles.
+
+Fourth, I design the schema with Drizzle. For example, a users table would have an ID as a UUID primary key with a random default, an email as a unique varchar, and a created at timestamp. An orders table would have its own ID, a user ID that references the users table, and a status field.
+
+Fifth, I optimize by adding indexes for frequently queried columns, considering denormalization for read-heavy workloads, and planning for soft deletes if needed.
+
+Question 3: How do you ensure application security?
+
+Answer: I follow a comprehensive security checklist.
+
+For authentication and authorization, I use secure password hashing with bcrypt or argon2. I implement JWT with short expiry plus refresh tokens. I use role-based access control. And I validate permissions on every request.
+
+For input validation, I sanitize all user inputs. I use parameterized queries, which Drizzle handles automatically. And I validate on both client and server.
+
+For infrastructure, I use HTTPS everywhere. I set up secure HTTP headers like CORS, CSP, and HSTS. I store secrets in environment variables. And I keep dependencies regularly updated.
+
+For data protection, I encrypt sensitive data at rest. I implement audit logging for sensitive operations. And I maintain data backup and recovery plans.
+
+I'm also aware of the OWASP Top 10, including injection, XSS, CSRF prevention, broken authentication checks, and security misconfiguration reviews.
+
+Question 4: Describe your development workflow from feature request to deployment.
+
+Answer: My workflow goes through several phases.
+
+First is requirements, where I clarify scope with stakeholders, break down the work into user stories and tasks, and estimate complexity.
+
+Second is planning, where I design database changes, plan API endpoints, and sketch UI components.
+
+Third is development, where I create a feature branch, write code with AI assistance, write tests alongside the code, and self-review before creating a pull request.
+
+Fourth is review and testing, where I create a pull request with a clear description, automated tests run through CI/CD, the team does code review, and I address feedback.
+
+Fifth is deployment, where I merge to main, automatic deployment goes to staging, QA does verification, we deploy to production, and I monitor for issues.
+
+Question 5: How do you handle state management in React applications?
+
+Answer: My approach varies by scale.
+
+For simple apps, I use React's built-in useState and useReducer hooks combined with Context.
+
+For medium complexity apps, I use Zustand because it's lightweight and simple. I create a store with state and actions that update the state immutably.
+
+For server state, I use TanStack Query, also known as React Query. I define queries with a query key and query function, and it handles loading states automatically.
+
+Why I prefer Zustand plus React Query is that it separates server state from UI state, provides automatic caching, refetching, and synchronization, requires minimal boilerplate, and has great DevTools.
+
+Question 6: How would you debug a slow-loading page?
+
+Answer: I take a systematic approach.
+
+First, I identify the bottleneck. I use the browser DevTools Network tab to check for slow API calls. I use the Performance tab to find expensive renders. And I run a Lighthouse audit for overall metrics.
+
+Common culprits and their fixes include large bundles, which I fix with code splitting and lazy loading. Slow APIs get caching and query optimization. Too many renders get solved with React.memo, useMemo, and useCallback. Large images get Next Image optimization and WebP format. Missing caching gets HTTP caching and CDN. And N plus 1 queries get eager loading and batching.
+
+For implementation, instead of importing heavy components directly, I use React's lazy function to dynamically import them only when needed.
+
+Finally, I measure again to verify improvements with metrics.
+
+Question 7: Describe how you would set up a new project from scratch.
+
+Answer: My setup process follows these steps.
+
+First is initialization. I run create-next-app with the latest version, specifying TypeScript, Tailwind, and app router.
+
+Second is adding tooling, including ESLint and Prettier configuration, Husky for pre-commit hooks, and VS Code settings for the team.
+
+Third is database setup. I install Drizzle ORM and the postgres driver, plus drizzle-kit as a dev dependency.
+
+Fourth is project structure. I organize into an app folder for Next.js app router, components for reusable UI components, lib for utilities and API clients, db for schema and migrations, hooks for custom React hooks, and types for TypeScript types.
+
+Fifth is environment setup. I create a dot env example file with required variables and set up development and production configs.
+
+Sixth is CI/CD. I set up GitHub Actions for testing and Vercel or Railway for deployment.
+
+Question 8: How do you handle errors and logging in production applications?
+
+Answer: My error handling strategy covers both frontend and backend.
+
+On the frontend, I use error boundaries. The error boundary component catches errors and logs them to a service like Sentry. It renders a fallback UI when there's an error, and renders children normally otherwise.
+
+On the backend, I use a centralized error handler middleware. It logs the error with details like message, stack trace, path, and user ID. It returns a generic error message in production to avoid exposing details, but shows the actual error in development.
+
+Logging best practices include using structured logging in JSON format, implementing log levels like error, warn, info, and debug, including context like user ID and request ID, never logging sensitive data like passwords or tokens, and using services like Posthog for analytics.
+
+Question 9: Explain Docker and how you use it in development.
+
+Answer: Docker packages applications with their dependencies into containers that run consistently anywhere.
+
+I create a Dockerfile that starts from node 20 alpine, sets the working directory to app, copies package files, runs npm install, copies the rest of the code, exposes port 3000, and runs the dev command.
+
+I also use docker-compose to define services. The app service builds from the Dockerfile, maps port 3000, mounts the current directory as a volume, and depends on the database. The db service uses postgres 15 with environment variables for the database name and password.
+
+The benefits include consistent environment across the team, easy spinning up of databases and caches, mirroring the production environment, and simple onboarding for new developers.
+
+Question 10: How do you approach learning new technologies quickly?
+
+Answer: My learning framework has several components.
+
+First, I understand the why. What problem does this technology solve? Why is it better than alternatives?
+
+Second, I start with official docs to get the canonical understanding.
+
+Third, I build something small like a todo app or API client for hands-on learning.
+
+Fourth, I use AI assistance to ask Claude to explain concepts and review my code.
+
+Fifth, I read real codebases to see how others use the technology in production.
+
+Sixth, I teach it because writing about it or explaining to others solidifies understanding.
+
+Here's a recent example. When learning Drizzle ORM, I read the docs to understand the type-safe query approach. Then I built a simple CRUD API. I used Claude to explain the query builder patterns. Then I migrated a small existing project from Prisma. Now I can confidently use it in production.
+
+For time allocation, I spend about 20 percent reading and watching, and 80 percent building and experimenting.

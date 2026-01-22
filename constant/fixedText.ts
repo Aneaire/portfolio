@@ -234,6 +234,13 @@ export const skillList = [
     alt: "OpenCode icon representing an AI-powered development tool for enhanced productivity",
     link: "https://opencode.ai/",
   },
+  {
+    name: "Convex",
+    icon: "/convex.png",
+    desc: "Convex is a backend platform that provides a database, serverless functions, and real-time subscriptions for building full-stack applications.",
+    alt: "Convex icon representing a backend platform for full-stack applications",
+    link: "https://convex.dev/",
+  },
 ];
 
 export type Project = {
@@ -247,7 +254,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "AI Companion",
+    name: "WellChat AI",
     nameDesc: "AI-Powered Therapy Chat App",
     desc: "AICompanion is a real-time chat app for personalized, AI-powered therapeutic conversations. Users interact with a virtual therapist and can connect with human counselors, featuring a live chat page, counselor matching system, and an impersonate mode for testing different user perspectives. Built with React, Hono, Drizzle ORM, Zustand, and TanStack Query, and powered by Google's Gemini AI for context-aware, empathetic responses.",
     image: "/aicompanion.png",

@@ -1,0 +1,113 @@
+API Integration Interview Questions and Answers
+
+Question 1: Explain REST API principles and how you apply them in your work.
+
+Answer: REST stands for Representational State Transfer, and it has several core principles.
+
+First is stateless, meaning each request contains all necessary information. Second is client-server, which is the separation of concerns between UI and data. Third is cacheable, where responses indicate if they can be cached. Fourth is uniform interface, meaning consistent resource identification and manipulation. And fifth is layered system, where the client doesn't know if it's connected directly to the server.
+
+Here's how I apply them in practice. I use proper HTTP methods, with GET for reading, POST for creating, PUT or PATCH for updating, and DELETE for removing. I design intuitive resource URLs like slash users slash ID slash orders. I return appropriate status codes like 200 for success, 201 for created, 400 for bad request, 401 for unauthorized, 404 for not found, and 500 for server errors. I version APIs with a path like slash api slash v1 for backward compatibility. And I use consistent response structures with proper error messages.
+
+Question 2: Walk through how you would integrate a payment gateway like Stripe or Paymongo.
+
+Answer: Let me walk through a Stripe integration process.
+
+First is setup. I install the SDK with npm install stripe. I configure API keys in environment variables. And I set up a webhook endpoint for async events.
+
+On the client side, I use Stripe Elements for secure card input. I create a Payment Intent on the server. And I confirm the payment on the client.
+
+On the server side, I create a payment intent with the amount in cents, the currency, and metadata like the order ID.
+
+For webhook handling, I verify webhook signatures. I handle events like payment intent succeeded and payment intent failed. And I update order status and send confirmation emails.
+
+For security, I never log full card details. I use HTTPS only. I validate webhook signatures. And I implement idempotency keys to prevent duplicate charges.
+
+Question 3: How do you handle API authentication and authorization?
+
+Answer: I use several common patterns.
+
+First is API Keys for simple server-to-server communication. I store keys in environment variables and pass them in headers using the Authorization Bearer format.
+
+Second is OAuth 2.0 for user-authorized access. I implement the authorization code flow for web apps and handle token refresh automatically.
+
+Third is JWT for session management. I use short-lived access tokens of about 15 minutes and longer-lived refresh tokens. I store them securely, preferring httpOnly cookies.
+
+Best practices include never exposing secrets in client-side code, implementing proper token rotation, using HTTPS exclusively, validating tokens on every request, and implementing rate limiting.
+
+Question 4: How do you handle errors from external APIs?
+
+Answer: I use a comprehensive error handling strategy.
+
+In my code, I wrap API calls in try-catch blocks. If the response is not OK, I parse the error and throw a custom API error. For known API errors, I handle them based on status code. If it's a 429 rate limit error, I handle the rate limit. If it's a 401 unauthorized, I refresh the token and retry. For network errors and timeouts, I log the error with context and throw a service unavailable error.
+
+Key practices include distinguishing between client errors in the 400 range and server errors in the 500 range, implementing retry logic with exponential backoff, providing meaningful error messages to users, logging errors with context for debugging, and using circuit breakers for unreliable services.
+
+Question 5: Explain how you would design an API wrapper or client library.
+
+Answer: When designing an API wrapper, I follow several key principles.
+
+I create a class that takes configuration like the API key and base URL. I provide type-safe methods for each API operation, like a create payment method that takes typed input and returns a typed response. I centralize the request logic with authentication, error handling, and retries.
+
+Key features include type safety with TypeScript, centralized authentication, consistent error handling, request and response logging, automatic retries, rate limit handling, and easy testing through dependency injection.
+
+Question 6: How would you integrate multiple third-party services that need to stay in sync?
+
+Answer: Let me give an example with e-commerce integrating CRM, inventory, and shipping.
+
+For architecture, I use an event-driven approach with a central event bus or workflow tool like N8N. I establish a single source of truth where one system owns each data type. I accept eventual consistency, meaning sync takes time. And I design idempotent operations that are safe to retry without duplicates.
+
+For implementation, when an order is created in the primary database, a webhook triggers an N8N workflow. That workflow creates a CRM contact and deal, reserves inventory, creates a shipping label, and sends a confirmation email. Everything is logged for sync status monitoring.
+
+For handling failures, I retry failed operations, use a dead letter queue for persistent failures, provide a manual reconciliation dashboard, and set up alerts for sync delays.
+
+Question 7: How do you approach API versioning?
+
+Answer: There are several versioning strategies.
+
+URL versioning is my preferred approach, using paths like slash api slash v1 slash users. It's clear and explicit and easy to route at the infrastructure level.
+
+Header versioning uses an Accept header with the version number. It provides cleaner URLs but is more complex to implement.
+
+Query parameter versioning adds version as a query string. It's simple but less elegant.
+
+For the deprecation process, I announce deprecation with a timeline of 3 to 6 months. I add deprecation headers to old version responses. I monitor usage of old versions. I provide migration guides. And I sunset the old version with clear communication.
+
+Question 8: How do you optimize API performance?
+
+Answer: I use several techniques.
+
+For caching, I use Redis for frequently accessed data, HTTP cache headers like ETag and Cache-Control, and request deduplication.
+
+For efficient queries, I implement pagination for large datasets, field selection to only return requested fields, and eager loading to avoid N plus 1 queries.
+
+For batching, I accept bulk operations and use GraphQL for complex data needs.
+
+For infrastructure, I use CDN for static responses, connection pooling, and compression with gzip.
+
+For monitoring, I track response times at the 50th, 95th, and 99th percentiles, identify slow endpoints, and alert on degradation.
+
+Question 9: Describe how you've integrated map services like Mapbox in applications.
+
+Answer: For Mapbox integration, I follow this approach.
+
+For setup, I manage API tokens securely and load the map library efficiently using lazy loading when needed.
+
+For implementation, I create a React component that initializes the map with a container, style, center coordinates, and zoom level. Then I add markers for each location by iterating through the locations array.
+
+For optimization, I cluster markers for large datasets, use vector tiles for performance, implement viewport-based loading, and cache geocoding results.
+
+Features I've built include store locators with search, delivery tracking with real-time updates, and route visualization.
+
+Question 10: How do you test API integrations?
+
+Answer: I use a comprehensive testing strategy.
+
+For unit tests, I mock external APIs. I create mock implementations and test that my service correctly handles the responses.
+
+For integration tests, I test against sandbox or test environments like Stripe test mode and Mapbox testing tokens.
+
+For contract tests, I ensure API changes don't break consumers. I define expected request and response schemas and validate against actual API responses.
+
+For end-to-end tests, I do full flow validation. I create test accounts and data and verify complete user journeys.
+
+For monitoring in production, I track success and failure rates, alert on unexpected response patterns, and log everything for debugging.
