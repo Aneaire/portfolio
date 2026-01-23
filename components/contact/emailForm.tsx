@@ -1,30 +1,41 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Loader2, Send } from "lucide-react";
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  message: string;
+}
+
 const EmailForm = () => {
-  const emailKey = process.env.NEXT_PUBLIC_EMAIL_API_KEY!;
-  const serviceId = process.env.NEXT_PUBLIC_EMAIL_SERVER_ID!;
-  const templateId = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!;
   const form = useRef<HTMLFormElement>(null);
   const [sending, setSending] = useState(false);
 
-  const sendEmail = (e: any) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!form.current) return;
 
-    const firstName = form.current["first_name"]?.value.trim();
-    const lastName = form.current["lastName"]?.value.trim();
-    const email = form.current["email"]?.value.trim();
-    const phoneNumber = form.current["phoneNumber"]?.value.trim();
-    const message = form.current["message"]?.value.trim();
+    const formData: FormData = {
+      firstName: form.current["firstName"]?.value.trim(),
+      lastName: form.current["lastName"]?.value.trim(),
+      email: form.current["email"]?.value.trim(),
+      phoneNumber: form.current["phoneNumber"]?.value.trim(),
+      message: form.current["message"]?.value.trim(),
+    };
 
-    if (!firstName || !lastName || !email || !message) {
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.message
+    ) {
       toast.error("Please fill out all required fields.");
       return;
     }
@@ -32,27 +43,33 @@ const EmailForm = () => {
     toast.loading("Sending message...", { id: "message-sending" });
     setSending(true);
 
-    emailjs
-      .sendForm(serviceId, templateId, form.current, {
-        publicKey: emailKey,
-      })
-      .then(
-        () => {
-          form.current?.reset();
-          toast.success(
-            "Message sent successfully! I'll get back to you soon.",
-            { id: "message-sending" },
-          );
-          setSending(false);
+    try {
+      const response = await fetch("/api/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error: any) => {
-          toast.error("Failed to send message. Please try again.", {
-            id: "message-sending",
-          });
-          console.error("Email sending error:", error);
-          setSending(false);
-        },
-      );
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
+      form.current?.reset();
+      toast.success("Message sent successfully! I'll get back to you soon.", {
+        id: "message-sending",
+      });
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.", {
+        id: "message-sending",
+      });
+      console.error("Email sending error:", error);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -64,7 +81,7 @@ const EmailForm = () => {
             className="input-form"
             placeholder="John"
             type="text"
-            name="first_name"
+            name="firstName"
             required
           />
         </div>
