@@ -158,29 +158,6 @@ export async function POST(request: Request) {
               padding: 24px; 
               border-radius: 16px;
               border: 1px solid #e2e8f0;
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              transition: all 0.3s ease;
-            }
-            .info-icon { 
-              width: 56px; 
-              height: 56px; 
-              background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-              border-radius: 14px;
-              display: flex; 
-              align-items: center; 
-              justify-content: center;
-              flex-shrink: 0;
-              box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
-            }
-            .info-icon svg { 
-              width: 26px; 
-              height: 26px; 
-              color: white; 
-            }
-            .info-content {
-              flex: 1;
             }
             .info-label { 
               font-size: 12px; 
@@ -298,40 +275,19 @@ export async function POST(request: Request) {
             <div class="content">
               <div class="info-grid">
                 <div class="info-item">
-                  <div class="info-icon">
-                    <svg fill="none" stroke="white" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                  </div>
-                  <div class="info-content">
-                    <div class="info-label">Contact Name</div>
-                    <div class="info-value">${firstName} ${lastName}</div>
-                  </div>
+                  <div class="info-label">Contact Name</div>
+                  <div class="info-value">${firstName} ${lastName}</div>
                 </div>
                 <div class="info-item">
-                  <div class="info-icon">
-                    <svg fill="none" stroke="white" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                  </div>
-                  <div class="info-content">
-                    <div class="info-label">Email Address</div>
-                    <div class="info-value"><a href="mailto:${email}">${email}</a></div>
-                  </div>
+                  <div class="info-label">Email Address</div>
+                  <div class="info-value"><a href="mailto:${email}">${email}</a></div>
                 </div>
                 ${
                   phoneNumber
                     ? `
                 <div class="info-item">
-                  <div class="info-icon">
-                    <svg fill="none" stroke="white" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                    </svg>
-                  </div>
-                  <div class="info-content">
-                    <div class="info-label">Phone Number</div>
-                    <div class="info-value">${phoneNumber}</div>
-                  </div>
+                  <div class="info-label">Phone Number</div>
+                  <div class="info-value">${phoneNumber}</div>
                 </div>
                 `
                     : ""
