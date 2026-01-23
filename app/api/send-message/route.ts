@@ -287,7 +287,7 @@ export async function POST(request: Request) {
               <div class="header-content">
                 <div class="badge">🔔 New Contact</div>
                 <div class="pulse-circle">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg fill="none" stroke="white" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                 </div>
@@ -299,7 +299,7 @@ export async function POST(request: Request) {
               <div class="info-grid">
                 <div class="info-item">
                   <div class="info-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg fill="none" stroke="white" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
                   </div>
@@ -310,7 +310,7 @@ export async function POST(request: Request) {
                 </div>
                 <div class="info-item">
                   <div class="info-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg fill="none" stroke="white" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                   </div>
@@ -324,7 +324,7 @@ export async function POST(request: Request) {
                     ? `
                 <div class="info-item">
                   <div class="info-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg fill="none" stroke="white" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                     </svg>
                   </div>
@@ -339,7 +339,7 @@ export async function POST(request: Request) {
               </div>
               <div class="message-section">
                 <div class="message-label">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg fill="none" stroke="#7c3aed" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
                   </svg>
                   Message Content
@@ -349,7 +349,7 @@ export async function POST(request: Request) {
               <div class="cta-section">
                 <a href="mailto:${email}" class="reply-btn">💬 Reply to ${firstName}</a>
                 <div class="timestamp">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg fill="none" stroke="#64748b" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   ${new Date().toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", hour12: true })}
