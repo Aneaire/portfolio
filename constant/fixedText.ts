@@ -241,6 +241,20 @@ export const skillList = [
     alt: "Convex icon representing a backend platform for full-stack applications",
     link: "https://convex.dev/",
   },
+  {
+    name: "T3 Code",
+    icon: "/t3code.svg",
+    desc: "T3 Code is an AI-powered coding agent built by Ping.gg that runs in your terminal, helping you write, refactor, and debug code through natural language conversation.",
+    alt: "T3 Code icon representing an AI-powered terminal coding agent",
+    link: "https://github.com/pingdotgg/t3code",
+  },
+  {
+    name: "Bun",
+    icon: "/bun.svg",
+    desc: "Bun is an all-in-one JavaScript runtime, bundler, transpiler, and package manager built for speed, designed as a drop-in replacement for Node.js.",
+    alt: "Bun icon representing a fast JavaScript runtime and package manager",
+    link: "https://bun.sh/",
+  },
 ];
 
 export type Project = {
