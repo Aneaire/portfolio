@@ -75,13 +75,13 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
           </div>
         </div>
 
-        <div className="relative mb-4 aspect-video overflow-hidden rounded-xl border border-border/50 bg-muted/30">
+        <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-xl border border-border/50 bg-muted/30">
           {project.image ? (
             <Image
               alt={project.name}
               src={project.image}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               sizes={
                 featured
                   ? "(max-width: 768px) 100vw, 800px"

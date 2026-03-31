@@ -254,12 +254,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "HiGantic",
+    nameDesc: "AI Agent Builder Platform",
+    desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and Claude Agent SDK powering the agentic loop via MCP. Features multi-model support, a credential vault, webhooks, scheduled actions, and inter-agent messaging.",
+    image: "/higantic.png",
+    link: "https://higantic.vercel.app/",
+    status: "live",
+  },
+  {
     name: "WellChat AI",
-    nameDesc: "AI-Powered Therapy Chat App",
-    desc: "AICompanion is a real-time chat app for personalized, AI-powered therapeutic conversations. Users interact with a virtual therapist and can connect with human counselors, featuring a live chat page, counselor matching system, and an impersonate mode for testing different user perspectives. Built with React, Hono, Drizzle ORM, Zustand, and TanStack Query, and powered by Google's Gemini AI for context-aware, empathetic responses.",
+    nameDesc: "AI Mental Health Companion",
+    desc: "WellChat is an AI-powered mental health support platform featuring adaptive persona-based therapy conversations powered by Google Gemini. A dual-AI architecture selects the best therapeutic persona (Empathetic Listener, Supportive Guide, Motivational Coach) per message, with crisis detection that overrides usage limits. Includes session management, a role-play training system, an audiobook library, a story maker, and a full admin dashboard. Built with React 19, TanStack Router, Convex for real-time backend, Clerk auth, and a premium subscription system via PayMongo.",
     image: "/aicompanion.png",
-    link: "https://aicompanion-mental-health.onrender.com",
-    status: "upcoming",
+    link: "https://wellchat-omega.vercel.app/",
+    status: "live",
   },
   {
     name: "SchoolSync Scheduler",
