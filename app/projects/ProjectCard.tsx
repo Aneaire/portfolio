@@ -27,13 +27,13 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
     <div
       className={cn(
         "glass-effect group relative overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10",
-        featured ? "p-6" : "p-4",
+        featured ? "px-6 pb-6 pt-4" : "px-4 pb-4 pt-3",
       )}
     >
       <div className="from-primary/3 to-secondary/3 absolute inset-0 bg-gradient-to-br via-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       <div className="relative z-10">
-        <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
+        <div className="mb-2 flex flex-wrap items-start justify-between gap-4">
           <div className="flex-1">
             <div className="mb-2 flex items-center gap-3">
               <h3
@@ -74,6 +74,18 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
             </Button>
           </div>
         </div>
+
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-2 inline-flex items-center gap-1.5 truncate text-sm text-primary/80 transition-colors hover:text-primary"
+          >
+            <ExternalLink className="h-3 w-3 shrink-0" />
+            {project.link.replace(/^https?:\/\//, "")}
+          </a>
+        )}
 
         <div className="relative mb-4 aspect-[4/3] overflow-hidden rounded-xl border border-border/50 bg-muted/30">
           {project.image ? (
