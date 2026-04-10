@@ -296,7 +296,6 @@ export const projects: Project[] = [
     nameDesc: "Internal AI Developer Tooling",
     desc: "Designed and deployed a custom AI coding agent for the ANEAIRE tech team — purpose-built around the company's infrastructure, codebase conventions, and internal tooling. Unlike generic AI assistants, this agent is context-aware from day one: it understands the team's architecture (Convex, Next.js, Hono, Claude SDK), reads project-specific files, and retains knowledge across the conversation to provide increasingly accurate suggestions. Enables every engineer to leverage AI pair-programming at the company level — accelerating feature delivery, reducing onboarding time for new devs, and keeping the entire team aligned on internal patterns and best practices.",
     image: "/aneaire-agent.png",
-    tools: ["Claude Code", "Claude SDK", "TypeScript", "Convex", "Next.js", "Hono"],
     status: "live",
   },
   {
