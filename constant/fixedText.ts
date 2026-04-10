@@ -276,6 +276,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Hometown Roofing TX",
+    nameDesc: "Roofing & Restoration Business Site",
+    desc: "Completely rebuilt the Hometown Roofing & Restoration website from Wix to a custom React application — delivering a faster, fully responsive, and maintainable site. Migrated all existing content and pages while modernizing the UI. Implemented form automations using n8n to handle lead capture and service inquiries, and set up automated email drip campaigns to nurture prospects from first contact through follow-up — replacing manual outreach with a hands-off pipeline that runs on submission.",
+    image: "/hometownroofing.png",
+    link: "https://www.hometownroofingtx.com",
+    status: "live",
+  },
+  {
     name: "HiGantic",
     nameDesc: "AI Agent Builder Platform",
     desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and Claude Agent SDK powering the agentic loop via MCP. Features multi-model support, a credential vault, webhooks, scheduled actions, and inter-agent messaging.",

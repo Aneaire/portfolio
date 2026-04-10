@@ -257,7 +257,7 @@ const FeaturedSkills = () => {
 };
 
 const FeaturedProjects = () => {
-  const featuredNames = ["HiGantic", "WellChat AI", "ANEAIRE AI Coding Agent"];
+  const featuredNames = ["Hometown Roofing TX", "HiGantic", "WellChat AI"];
   const featured = featuredNames
     .map((name) => projects.find((p) => p.name === name))
     .filter(Boolean) as typeof projects;

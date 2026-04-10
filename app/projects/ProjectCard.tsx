@@ -111,11 +111,12 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
               alt={project.name}
               src={project.image}
               fill
+              quality={90}
               className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
               sizes={
                 featured
-                  ? "(max-width: 768px) 100vw, 800px"
-                  : "(max-width: 768px) 100vw, 400px"
+                  ? "(max-width: 768px) 100vw, 1024px"
+                  : "(max-width: 768px) 100vw, 512px"
               }
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-200 group-hover:bg-black/30">
