@@ -1,4 +1,3 @@
-import GlowingDotsBackground from "@/components/bg/GlowingDotsBackground";
 import ClientLoadingManager from "@/components/ClientLoadingManager";
 import SideBar from "@/components/sidebar/SideBar";
 import Footer from "@/components/footer/Footer";
@@ -7,7 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Montserrat, Poppins } from "next/font/google";
+import { Space_Grotesk, DM_Sans } from "next/font/google";
 import React from "react";
 import "./globals.css";
 
@@ -15,16 +14,16 @@ const LoadingOverlay = dynamic(() => import("@/components/ui/LoadingOverlay"), {
   ssr: false,
 });
 
-const montserrat = Montserrat({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-montserrat",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
 });
 
-const poppins = Poppins({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
@@ -40,11 +39,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} ${montserrat.className}`}>
+      <body className={`${spaceGrotesk.variable} ${dmSans.variable} font-body`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           <ClientLoadingManager>
@@ -58,7 +57,6 @@ export default function RootLayout({
               <Footer />
             </div>
           </ClientLoadingManager>
-          <GlowingDotsBackground />
           <Toaster />
           <Analytics />
         </ThemeProvider>

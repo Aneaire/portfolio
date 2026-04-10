@@ -24,7 +24,7 @@ const SkillCard = ({
   const handleMouseEnter = () => {
     timeoutRef.current = setTimeout(() => {
       setShowDesc(true);
-    }, 1500);
+    }, 1200);
   };
 
   const handleMouseLeave = () => {
@@ -41,39 +41,34 @@ const SkillCard = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group relative flex w-[140px] flex-none flex-col items-center rounded-xl border border-border/50 bg-card p-5 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 sm:w-[150px] md:w-[160px]",
+        "group relative flex w-[130px] flex-none flex-col items-center border border-border bg-card p-4 transition-colors duration-200 hover:border-primary sm:w-[140px]",
         className,
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-      <div className="relative z-10 flex w-full flex-col items-center text-center">
-        <div className="relative mb-3">
-          <div className="absolute inset-0 rounded-full bg-primary/20 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-50" />
-          <img
-            alt={alt}
-            src={icon}
-            className="relative size-14 object-contain transition-transform duration-500 group-hover:scale-110"
-          />
-        </div>
-
-        <h3 className="mb-1 line-clamp-1 text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
-          {name}
-        </h3>
-
-        {showDescription && (
-          <div
-            className={cn(
-              "overflow-hidden text-xs text-muted-foreground transition-all duration-300",
-              showDesc ? "max-h-32 opacity-100" : "max-h-0 opacity-0",
-            )}
-          >
-            {desc}
-          </div>
-        )}
+      <div className="mb-3 flex items-center justify-center">
+        <img
+          alt={alt}
+          src={icon}
+          className="size-12 object-contain transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
+
+      <h3 className="line-clamp-1 text-xs font-semibold text-muted-foreground transition-colors group-hover:text-foreground">
+        {name}
+      </h3>
+
+      {showDescription && (
+        <div
+          className={cn(
+            "mt-1 overflow-hidden text-xs text-muted-foreground/70 transition-all duration-300",
+            showDesc ? "max-h-24 opacity-100" : "max-h-0 opacity-0",
+          )}
+        >
+          {desc}
+        </div>
+      )}
     </a>
   );
 };

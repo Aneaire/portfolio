@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Download,
   Github,
   Linkedin,
   Mail,
@@ -15,142 +14,97 @@ import { Separator } from "../ui/separator";
 import Hamburger from "./Hamburger";
 import HamburgerContent from "./HamburgerContent";
 import NavBar from "./NavBar";
-import { Badge } from "../ui/badge";
 
 export const SideProfile = () => {
   return (
-    <div className="glass-effect-strong relative overflow-hidden rounded-2xl p-6 text-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-      <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-primary via-violet-400 to-secondary" />
-
-      <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
-        <div className="group relative">
-          <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-primary to-secondary opacity-75 blur transition-opacity duration-500 group-hover:opacity-100" />
-          <div className="relative size-28 overflow-hidden rounded-full bg-card">
+    <div className="border border-border bg-card px-4 py-6">
+      <div className="flex flex-col items-center space-y-5">
+        <div className="relative">
+          <div className="h-24 w-24 overflow-hidden border-2 border-primary">
             <Image
               src="https://utfs.io/f/069ce615-0670-4cd6-a9bc-51bc8f8341cc-15qpaj.jpg"
-              fill
-              alt="Angelo S Santiago - Profile"
+              width={96}
+              height={96}
+              alt="Angelo S Santiago"
               className="object-cover"
-              sizes="112px"
               priority
             />
           </div>
-          <div className="absolute bottom-1 right-1 h-4 w-4 animate-pulse rounded-full border-2 border-card bg-green-500" />
+          <div className="absolute -bottom-1 -right-1 h-3.5 w-3.5 border-2 border-background bg-primary" />
         </div>
 
-        <div className="space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">
+        <div className="space-y-1 text-center">
+          <h1 className="text-lg font-bold tracking-tight text-foreground">
             Angelo Santiago
           </h1>
-          <p className="text-sm font-medium text-muted-foreground">
-            Full Stack Developer
-          </p>
-          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+          <p className="text-xs text-muted-foreground">Full Stack Developer</p>
+          <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
             <MapPin className="h-3 w-3" />
             <span>Pampanga, Philippines</span>
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2">
-          <Badge
-            variant="secondary"
-            className="border-primary/20 bg-primary/10 text-primary"
-          >
-            TypeScript
-          </Badge>
-          <Badge
-            variant="secondary"
-            className="border-secondary/20 bg-secondary/10 text-secondary"
-          >
-            React
-          </Badge>
-          <Badge
-            variant="secondary"
-            className="border-primary/20 bg-primary/10 text-primary"
-          >
-            AI/Automation
-          </Badge>
+        <div className="flex flex-wrap justify-center gap-1.5">
+          {["TypeScript", "React", "AI/Automation"].map((tag) => (
+            <span
+              key={tag}
+              className="border border-border px-2 py-0.5 text-xs text-muted-foreground"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
 
-        <Separator className="bg-border/50" />
+        <Separator className="bg-border" />
 
-        <div className="flex w-full flex-col gap-2 text-sm text-muted-foreground">
-          <a
-            href="mailto:gelosantiago.dev@gmail.com"
-            className="flex items-center justify-center gap-2 transition-colors hover:text-primary"
-          >
-            <Mail className="h-4 w-4" />
-            <span>gelosantiago.dev@gmail.com</span>
-          </a>
-        </div>
+        <a
+          href="mailto:gelosantiago.dev@gmail.com"
+          className="flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-primary"
+        >
+          <Mail className="h-3 w-3" />
+          <span>gelosantiago.dev@gmail.com</span>
+        </a>
 
-        <Separator className="bg-border/50" />
+        <Separator className="bg-border" />
 
-        <div className="flex justify-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            asChild
-            className="hover:bg-primary/10 hover:text-primary"
-          >
-            <a
-              href="https://github.com/Aneaire"
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className="flex items-center gap-1">
+          {[
+            { icon: Github, href: "https://github.com/Aneaire", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/angelo-santiago-842083318", label: "LinkedIn" },
+            { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+          ].map(({ icon: Icon, href, label }) => (
+            <Button
+              key={label}
+              variant="ghost"
+              size="icon"
+              asChild
+              className="h-8 w-8 text-muted-foreground transition-colors hover:bg-transparent hover:text-primary"
             >
-              <Github className="h-4 w-4" />
-            </a>
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            asChild
-            className="hover:bg-primary/10 hover:text-primary"
-          >
-            <a
-              href="www.linkedin.com/in/angelo-santiago-842083318"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Linkedin className="h-4 w-4" />
-            </a>
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            asChild
-            className="hover:bg-primary/10 hover:text-primary"
-          >
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter className="h-4 w-4" />
-            </a>
-          </Button>
+              <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                <Icon className="h-4 w-4" />
+              </a>
+            </Button>
+          ))}
         </div>
 
         <div className="flex w-full gap-2">
           <Button
             variant="outline"
             size="sm"
-            className="flex-1 border-primary/30 hover:bg-primary/10"
+            className="flex-1 border-border text-xs hover:border-primary hover:bg-transparent hover:text-primary"
             asChild
           >
             <a href="/resume.pdf" download>
-              <FileText className="mr-2 h-4 w-4" />
+              <FileText className="mr-1.5 h-3 w-3" />
               Resume
             </a>
           </Button>
           <Button
             size="sm"
-            className="flex-1 bg-primary hover:bg-primary/90"
+            className="flex-1 bg-primary text-xs font-semibold text-primary-foreground hover:bg-primary/90"
             asChild
           >
             <a href="/contact">
-              <Mail className="mr-2 h-4 w-4" />
               Contact
             </a>
           </Button>
@@ -165,9 +119,9 @@ const SideBar = () => {
     <>
       <HamburgerContent />
 
-      <div className="sticky left-0 top-0 hidden h-screen max-h-screen w-80 flex-col space-y-4 p-4 lg:flex">
+      <div className="sticky left-0 top-0 hidden h-screen max-h-screen w-72 flex-col space-y-3 p-4 lg:flex">
         <SideProfile />
-        <div className="glass-effect-strong flex-1 rounded-xl p-2">
+        <div className="border border-border bg-card flex-1 p-2">
           <NavBar />
         </div>
       </div>

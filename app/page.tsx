@@ -4,19 +4,7 @@ import SkillCard from "@/components/Common/SkillCard";
 import Quote from "@/components/Common/Quote";
 import { homeText, projects, skillList } from "@/constant/fixedText";
 import ProjectCard from "./projects/ProjectCard";
-import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Code,
-  Cpu,
-  Zap,
-  Layers,
-  Sparkles,
-  Bot,
-  Rocket,
-  TrendingUp,
-  MousePointerClick,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -54,7 +42,7 @@ const TypeWriter = ({
             : word.slice(0, currentText.length + 1),
         );
       },
-      isDeleting ? 50 : 100,
+      isDeleting ? 40 : 90,
     );
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, currentWordIndex, words]);
@@ -62,23 +50,23 @@ const TypeWriter = ({
   return (
     <span className={className}>
       {currentText}
-      <span className="animate-pulse text-primary">|</span>
+      <span className="text-primary">|</span>
     </span>
   );
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" as const },
+    transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" as const },
   }),
 };
 
-const staggerContainer = {
+const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
 const HeroSection = () => {
@@ -86,99 +74,79 @@ const HeroSection = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      variants={staggerContainer}
-      className="relative mb-12 overflow-hidden rounded-3xl border border-border/50 bg-card/40 px-6 py-12 backdrop-blur-2xl md:px-12 md:py-16"
+      variants={stagger}
+      className="relative mb-16 pt-8"
     >
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-secondary/10 blur-[120px]" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[80px]" />
-
-      <div className="relative z-10 max-w-3xl">
-        <motion.div variants={fadeUp} custom={0} className="mb-6 flex items-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm font-medium text-green-400">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-            </span>
-            Available for opportunities
+      <motion.div variants={fadeUp} custom={0} className="mb-5 flex items-center gap-3">
+        <span className="flex items-center gap-2 text-xs text-muted-foreground">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-        </motion.div>
+          Available for opportunities
+        </span>
+      </motion.div>
 
-        <motion.h1
-          variants={fadeUp}
-          custom={1}
-          className="mb-1 text-4xl font-bold leading-tight tracking-tight md:text-6xl"
-        >
-          I build things that work.
-        </motion.h1>
-        <motion.div
-          variants={fadeUp}
-          custom={1.5}
-          className="mb-3 text-lg font-medium text-muted-foreground md:text-2xl"
-        >
-          <TypeWriter
-            words={[
-              "AI-powered apps",
-              "multi-agent systems",
-              "full-stack solutions",
-              "smart automations",
-            ]}
-            className="text-gradient font-semibold"
-          />
-        </motion.div>
+      <motion.h1
+        variants={fadeUp}
+        custom={1}
+        className="mb-2 text-5xl font-bold leading-[1.1] tracking-tight text-foreground md:text-7xl"
+      >
+        I build things
+        <br />
+        that work.
+      </motion.h1>
 
-        <motion.p
-          variants={fadeUp}
-          custom={2}
-          className="mb-3 text-lg font-medium text-muted-foreground md:text-xl"
-        >
-          that ship <span className="text-primary font-semibold">40-60% faster</span> without compromising quality.
-        </motion.p>
+      <motion.div
+        variants={fadeUp}
+        custom={1.5}
+        className="mb-4 text-xl font-medium text-muted-foreground md:text-2xl"
+      >
+        <TypeWriter
+          words={[
+            "AI-powered apps",
+            "multi-agent systems",
+            "full-stack solutions",
+            "smart automations",
+          ]}
+          className="text-primary font-semibold"
+        />
+      </motion.div>
 
-        <motion.p
-          variants={fadeUp}
-          custom={3}
-          className="mb-8 max-w-xl text-base leading-relaxed text-muted-foreground/80"
-        >
-          Software Developer & AI Automation Specialist combining full-stack
-          engineering with Claude, Codex, and multi-agent orchestration to
-          deliver production-ready systems at speed.
-        </motion.p>
+      <motion.p
+        variants={fadeUp}
+        custom={2}
+        className="mb-10 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base"
+      >
+        Software Developer & AI Automation Specialist. Full-stack engineering
+        combined with Claude, Codex, and multi-agent orchestration — shipping
+        production systems 40–60% faster.
+      </motion.p>
 
-        <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-4">
-          <Button
-            size="lg"
-            className="group bg-primary px-6 text-base font-semibold hover:bg-primary/90"
-            asChild
-          >
-            <Link href="/projects">
-              <Rocket className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
-              See My Work
-            </Link>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-primary/30 px-6 text-base hover:bg-primary/10"
-            asChild
-          >
-            <Link href="/contact">
-              <Zap className="mr-2 h-5 w-5" />
-              Let&apos;s Talk
-            </Link>
-          </Button>
-        </motion.div>
-      </div>
+      <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-2 bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+        >
+          See My Work
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-2 border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+        >
+          Let&apos;s Talk
+        </Link>
+      </motion.div>
     </motion.div>
   );
 };
 
 const stats = [
-  { value: "7+", label: "Projects Shipped", icon: Rocket },
-  { value: "24+", label: "Technologies", icon: Layers },
-  { value: "40-60%", label: "Faster Delivery", icon: TrendingUp },
-  { value: "4", label: "Service Areas", icon: Bot },
+  { value: "7+", label: "Projects Shipped" },
+  { value: "24+", label: "Technologies" },
+  { value: "40–60%", label: "Faster Delivery" },
+  { value: "4", label: "Service Areas" },
 ];
 
 const StatsSection = () => {
@@ -186,22 +154,21 @@ const StatsSection = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={staggerContainer}
-      className="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4"
+      viewport={{ once: true }}
+      variants={stagger}
+      className="mb-16 grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4"
     >
       {stats.map((stat, i) => (
         <motion.div
           key={stat.label}
           variants={fadeUp}
           custom={i}
-          className="glass-effect group rounded-2xl p-5 text-center transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
+          className="flex flex-col items-center justify-center bg-card py-8 text-center"
         >
-          <stat.icon className="mx-auto mb-3 h-6 w-6 text-primary transition-transform duration-500 group-hover:scale-110" />
-          <div className="text-2xl font-bold text-foreground md:text-3xl">
+          <div className="text-3xl font-bold text-primary md:text-4xl">
             {stat.value}
           </div>
-          <div className="mt-1 text-xs font-medium text-muted-foreground md:text-sm">
+          <div className="mt-1 text-xs text-muted-foreground">
             {stat.label}
           </div>
         </motion.div>
@@ -210,51 +177,38 @@ const StatsSection = () => {
   );
 };
 
-const serviceIcons = [Cpu, Code, Zap, Sparkles];
-
 const ServicesSection = () => {
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={staggerContainer}
-      className="mb-12"
+      viewport={{ once: true }}
+      variants={stagger}
+      className="mb-16"
     >
-      <motion.div variants={fadeUp} custom={0} className="mb-6 flex items-center gap-3">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-          <MousePointerClick className="h-4 w-4 text-primary" />
-        </div>
-        <h2 className="text-2xl font-bold">What I Do</h2>
+      <motion.div variants={fadeUp} custom={0} className="mb-8">
+        <p className="section-label mb-2">What I Do</p>
+        <h2 className="text-2xl font-bold">Services</h2>
+        <div className="mt-2 h-px w-8 bg-primary" />
       </motion.div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {homeText.others.map((service, index) => {
-          const Icon = serviceIcons[index];
-          return (
-            <motion.div
-              key={service.title}
-              variants={fadeUp}
-              custom={index + 1}
-              className="glass-effect group relative overflow-hidden rounded-2xl p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative z-10">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-                    <Icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
-                    {service.title}
-                  </h3>
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {service.description}
-                </p>
-              </div>
-            </motion.div>
-          );
-        })}
+      <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
+        {homeText.others.map((service, index) => (
+          <motion.div
+            key={service.title}
+            variants={fadeUp}
+            custom={index + 1}
+            className="bg-card p-6 transition-colors duration-200 hover:bg-muted"
+          >
+            <p className="section-label mb-3">0{index + 1}</p>
+            <h3 className="mb-3 text-base font-semibold text-foreground">
+              {service.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {service.description}
+            </p>
+          </motion.div>
+        ))}
       </div>
     </motion.section>
   );
@@ -268,39 +222,34 @@ const FeaturedSkills = () => {
     skillList.find((skill) => skill.name === "Claude")!,
     skillList.find((skill) => skill.name === "Node JS")!,
     skillList.find((skill) => skill.name === "Convex")!,
-  ];
+  ].filter(Boolean);
 
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={staggerContainer}
-      className="mb-12"
+      viewport={{ once: true }}
+      variants={stagger}
+      className="mb-16"
     >
-      <motion.div variants={fadeUp} custom={0} className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary/10">
-            <Layers className="h-4 w-4 text-secondary" />
-          </div>
+      <motion.div variants={fadeUp} custom={0} className="mb-6 flex items-end justify-between">
+        <div>
+          <p className="section-label mb-2">Tech</p>
           <h2 className="text-2xl font-bold">Core Stack</h2>
+          <div className="mt-2 h-px w-8 bg-primary" />
         </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          asChild
-          className="group hover:bg-primary/10 hover:text-primary"
+        <Link
+          href="/skills"
+          className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary"
         >
-          <Link href="/skills">
-            All 24+ skills
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </Button>
+          All 24+ skills
+          <ArrowRight className="h-3 w-3" />
+        </Link>
       </motion.div>
 
       <motion.div variants={fadeUp} custom={1} className="skill-card-wrapper">
         {featuredSkills.map((skill) => (
-          <SkillCard key={skill.name} {...skill} />
+          <SkillCard key={skill.name} {...skill} showDescription={false} />
         ))}
       </motion.div>
     </motion.section>
@@ -308,41 +257,39 @@ const FeaturedSkills = () => {
 };
 
 const FeaturedProjects = () => {
-  const featured = projects.filter((p) => p.status === "live").slice(0, 3);
+  const featuredNames = ["HiGantic", "WellChat AI", "ANEAIRE AI Coding Agent"];
+  const featured = featuredNames
+    .map((name) => projects.find((p) => p.name === name))
+    .filter(Boolean) as typeof projects;
 
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={staggerContainer}
-      className="mb-12"
+      viewport={{ once: true }}
+      variants={stagger}
+      className="mb-16"
     >
-      <motion.div variants={fadeUp} custom={0} className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-            <Code className="h-4 w-4 text-primary" />
-          </div>
+      <motion.div variants={fadeUp} custom={0} className="mb-6 flex items-end justify-between">
+        <div>
+          <p className="section-label mb-2">Work</p>
           <h2 className="text-2xl font-bold">Featured Projects</h2>
+          <div className="mt-2 h-px w-8 bg-primary" />
         </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          asChild
-          className="group hover:bg-primary/10 hover:text-primary"
+        <Link
+          href="/projects"
+          className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary"
         >
-          <Link href="/projects">
-            View All
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </Button>
+          View All
+          <ArrowRight className="h-3 w-3" />
+        </Link>
       </motion.div>
 
-      <div className="space-y-4">
+      <div className="space-y-px border border-border bg-border">
         <motion.div variants={fadeUp} custom={1}>
           <ProjectCard project={featured[0]} featured />
         </motion.div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-px md:grid-cols-2">
           {featured.slice(1).map((project, i) => (
             <motion.div key={project.name} variants={fadeUp} custom={i + 2}>
               <ProjectCard project={project} />
@@ -359,49 +306,39 @@ const CTASection = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={staggerContainer}
-      className="mb-8"
+      viewport={{ once: true }}
+      variants={stagger}
+      className="mb-12"
     >
       <motion.div
         variants={fadeUp}
         custom={0}
-        className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card/60 to-secondary/10 p-8 text-center backdrop-blur-xl md:p-12"
+        className="border border-border bg-card p-10 text-center md:p-16"
       >
-        <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/10 blur-[80px]" />
-        <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-secondary/10 blur-[80px]" />
-
-        <div className="relative z-10">
-          <h2 className="mb-3 text-3xl font-bold md:text-4xl">
-            Ready to build something{" "}
-            <span className="text-gradient">amazing</span>?
-          </h2>
-          <p className="mx-auto mb-6 max-w-lg text-muted-foreground">
-            Whether it&apos;s an AI-powered app, a workflow automation, or a
-            full-stack platform — let&apos;s make it happen.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button
-              size="lg"
-              className="group bg-primary px-8 text-base font-semibold hover:bg-primary/90"
-              asChild
-            >
-              <Link href="/contact">
-                Start a Conversation
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border/50 px-8 text-base hover:bg-card/80"
-              asChild
-            >
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                Download Resume
-              </a>
-            </Button>
-          </div>
+        <p className="section-label mb-4">Next Step</p>
+        <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          Ready to build something?
+        </h2>
+        <p className="mx-auto mb-8 max-w-md text-sm text-muted-foreground">
+          Whether it&apos;s an AI-powered app, a workflow automation, or a
+          full-stack platform — let&apos;s make it happen.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Start a Conversation
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            Download Resume
+          </a>
         </div>
       </motion.div>
     </motion.section>
@@ -417,13 +354,12 @@ export default function Home() {
       <FeaturedSkills />
       <FeaturedProjects />
       <CTASection />
-
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mb-4"
+        transition={{ duration: 0.5 }}
+        className="mb-8"
       >
         <Quote />
       </motion.div>

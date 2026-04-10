@@ -1,7 +1,6 @@
 "use client";
 
 import useSideBarStore from "../store/sidebar-store";
-import { Button } from "../ui/button";
 import NavBar from "./NavBar";
 import { SideProfile } from "./SideBar";
 import { X } from "lucide-react";
@@ -17,19 +16,18 @@ const HamburgerContent = () => {
         className="absolute inset-0 bg-background/80 backdrop-blur-sm"
         onClick={() => setHamburger(false)}
       />
-      <div className="relative z-10 flex h-full w-80 animate-slide-in-left flex-col overflow-y-auto bg-card p-4 shadow-xl">
+      <div className="relative z-10 flex h-full w-72 animate-slide-in-left flex-col overflow-y-auto border-r border-border bg-background p-4 shadow-xl">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Navigation</h2>
-          <Button
-            variant="ghost"
-            size="icon"
+          <span className="section-label">Menu</span>
+          <button
             onClick={() => setHamburger(false)}
+            className="flex h-7 w-7 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
           >
-            <X className="h-5 w-5" />
-          </Button>
+            <X className="h-3.5 w-3.5" />
+          </button>
         </div>
         <SideProfile />
-        <div className="glass-effect-strong mt-4 rounded-xl p-2">
+        <div className="mt-3 border border-border bg-card p-2">
           <NavBar />
         </div>
       </div>

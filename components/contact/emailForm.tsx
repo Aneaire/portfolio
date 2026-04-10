@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { toast } from "sonner";
-import { Button } from "../ui/button";
 import { Loader2, Send } from "lucide-react";
 
 interface FormData {
@@ -46,9 +45,7 @@ const EmailForm = () => {
     try {
       const response = await fetch("/api/send-message", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -59,7 +56,7 @@ const EmailForm = () => {
       }
 
       form.current?.reset();
-      toast.success("Message sent successfully! I'll get back to you soon.", {
+      toast.success("Message sent! I'll get back to you soon.", {
         id: "message-sending",
       });
     } catch (error) {
@@ -73,10 +70,10 @@ const EmailForm = () => {
   };
 
   return (
-    <form className="space-y-6" ref={form} onSubmit={sendEmail}>
+    <form className="space-y-5" ref={form} onSubmit={sendEmail}>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-sm font-medium">First Name *</label>
+          <label className="section-label mb-2 block">First Name *</label>
           <input
             className="input-form"
             placeholder="John"
@@ -86,7 +83,7 @@ const EmailForm = () => {
           />
         </div>
         <div>
-          <label className="mb-2 block text-sm font-medium">Last Name *</label>
+          <label className="section-label mb-2 block">Last Name *</label>
           <input
             className="input-form"
             placeholder="Doe"
@@ -99,9 +96,7 @@ const EmailForm = () => {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-sm font-medium">
-            Email Address *
-          </label>
+          <label className="section-label mb-2 block">Email Address *</label>
           <input
             className="input-form"
             placeholder="john@example.com"
@@ -111,7 +106,7 @@ const EmailForm = () => {
           />
         </div>
         <div>
-          <label className="mb-2 block text-sm font-medium">Phone Number</label>
+          <label className="section-label mb-2 block">Phone Number</label>
           <input
             className="input-form [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             placeholder="+1 (555) 000-0000"
@@ -122,32 +117,32 @@ const EmailForm = () => {
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium">Message *</label>
+        <label className="section-label mb-2 block">Message *</label>
         <textarea
-          className="input-form min-h-32 resize-y"
+          className="input-form min-h-36 resize-y"
           name="message"
           placeholder="Tell me about your project, timeline, and how I can help..."
           required
         />
       </div>
 
-      <Button
+      <button
         type="submit"
         disabled={sending}
-        className="w-full min-w-[200px] bg-primary hover:bg-primary/90 md:w-auto"
+        className="inline-flex items-center gap-2 bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
       >
         {sending ? (
           <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin" />
             Sending...
           </>
         ) : (
           <>
-            <Send className="mr-2 h-4 w-4" />
+            <Send className="h-4 w-4" />
             Send Message
           </>
         )}
-      </Button>
+      </button>
     </form>
   );
 };

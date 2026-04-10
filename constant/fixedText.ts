@@ -14,11 +14,6 @@ export const homeText = {
     "Hello! I'm Angelo Santiago, a Software Developer specializing in AI-powered automation and data engineering solutions. I combine strong software engineering fundamentals with cutting-edge AI tools and data processing technologies to build applications that not only function flawlessly but also drive business efficiency. My expertise spans full-stack development, workflow automation, AI-enhanced development practices, and scalable data pipeline architecture using Claude, Codex, and OpenCode. This comprehensive focus ensures clients receive robust, scalable software solutions that deliver 40-60% faster development cycles while maintaining exceptional quality and reducing operational costs.",
   others: [
     {
-      title: "Multi-agent Orchestration & Agentic RAG Solutions",
-      description:
-        "I design and implement streamlined multi-agent systems powered by Agentic AI and RAG architectures. Using modern orchestration frameworks, I build intelligent agents that collaborate, reason, and deliver context-aware responses at scale. My solutions leverage advanced AI patterns to automate complex workflows, enhance decision-making, and ensure reliable, production-ready systems that adapt to evolving business requirements.",
-    },
-    {
       title: "Full-Stack Software Development",
       description:
         "I build robust, scalable applications using modern frameworks like React, Next.js, Node.js, and TypeScript. My software engineering expertise ensures clean, maintainable code with proper architecture, testing, and deployment practices. From responsive web applications to mobile solutions, I deliver high-quality software that meets business requirements while following industry best practices for security, performance, and user experience.",
@@ -27,6 +22,11 @@ export const homeText = {
       title: "AI-Enhanced Workflow Automation",
       description:
         "I integrate AI automation with traditional software development to create intelligent workflows that boost productivity. Using Zapier, N8N, and custom Google Cloud Functions, I eliminate repetitive tasks and deliver 25%+ productivity gains. My solutions combine robust software architecture with AI-powered automation, ensuring reliable systems that handle complex business processes while reducing manual errors and operational overhead.",
+    },
+    {
+      title: "Custom AI — Built for Your Use Case",
+      description:
+        "I build AI that is shaped around how you actually work. Each agent is customized to a specific role — customer support, internal ops, sales, onboarding, or anything in between. It learns as the conversation progresses, retains context across sessions, and gets sharper over time. The result is an AI that doesn't just answer questions — it builds a relationship with your users, integrates deeply with your existing services, and becomes a native part of your internal tooling.",
     },
     {
       title: "AI-Powered Development Acceleration",
@@ -255,6 +255,13 @@ export const skillList = [
     alt: "Bun icon representing a fast JavaScript runtime and package manager",
     link: "https://bun.sh/",
   },
+  {
+    name: "Google Services",
+    icon: "/google.svg",
+    desc: "Google Services covers a broad suite of APIs and platforms including Google Maps, Gmail, Google Calendar, Drive, OAuth, and Cloud services for building integrated applications.",
+    alt: "Google icon representing Google APIs and services",
+    link: "https://developers.google.com/",
+  },
 ];
 
 export type Project = {
@@ -262,7 +269,8 @@ export type Project = {
   nameDesc: string;
   desc: string;
   image: string;
-  link: string;
+  link?: string;
+  tools?: string[];
   status: "live" | "upcoming" | "down";
 };
 
@@ -273,7 +281,7 @@ export const projects: Project[] = [
     desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and Claude Agent SDK powering the agentic loop via MCP. Features multi-model support, a credential vault, webhooks, scheduled actions, and inter-agent messaging.",
     image: "/higantic.png",
     link: "https://higantic.vercel.app/",
-    status: "live",
+    status: "upcoming",
   },
   {
     name: "WellChat AI",
@@ -281,6 +289,14 @@ export const projects: Project[] = [
     desc: "WellChat is an AI-powered mental health support platform featuring adaptive persona-based therapy conversations powered by Google Gemini. A dual-AI architecture selects the best therapeutic persona (Empathetic Listener, Supportive Guide, Motivational Coach) per message, with crisis detection that overrides usage limits. Includes session management, a role-play training system, an audiobook library, a story maker, and a full admin dashboard. Built with React 19, TanStack Router, Convex for real-time backend, Clerk auth, and a premium subscription system via PayMongo.",
     image: "/aicompanion.png",
     link: "https://wellchat-omega.vercel.app/",
+    status: "live",
+  },
+  {
+    name: "ANEAIRE AI Coding Agent",
+    nameDesc: "Internal AI Developer Tooling",
+    desc: "Designed and deployed a custom AI coding agent for the ANEAIRE tech team — purpose-built around the company's infrastructure, codebase conventions, and internal tooling. Unlike generic AI assistants, this agent is context-aware from day one: it understands the team's architecture (Convex, Next.js, Hono, Claude SDK), reads project-specific files, and retains knowledge across the conversation to provide increasingly accurate suggestions. Enables every engineer to leverage AI pair-programming at the company level — accelerating feature delivery, reducing onboarding time for new devs, and keeping the entire team aligned on internal patterns and best practices.",
+    image: "/aneaire-agent.png",
+    tools: ["Claude Code", "Claude SDK", "TypeScript", "Convex", "Next.js", "Hono"],
     status: "live",
   },
   {

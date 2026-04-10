@@ -10,14 +10,15 @@ const Hamburger = () => {
   return (
     <button
       onClick={() => setHamburger(true)}
-      className="fixed right-4 top-4 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-border/50 bg-card/80 shadow-lg backdrop-blur-sm transition-colors hover:bg-card lg:hidden"
+      className="fixed right-4 top-4 z-50 flex h-9 w-9 cursor-pointer items-center justify-center border border-border bg-card transition-colors hover:border-primary lg:hidden"
+      aria-label="Open menu"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="size-5 fill-foreground"
+        className="size-4"
       >
         <path
           strokeLinecap="round"

@@ -3,21 +3,14 @@
 import Container from "@/components/Common/Container";
 import Quote from "@/components/Common/Quote";
 import EmailForm from "@/components/contact/emailForm";
-import { Separator } from "@/components/ui/separator";
 import { personalInfo } from "@/constant/fixedText";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Mail,
   Phone,
   MapPin,
   MessageSquare,
   Send,
-  ExternalLink,
-  Clock,
-  ArrowRight,
 } from "lucide-react";
-import Link from "next/link";
 
 const ContactInfoCard = ({
   icon: Icon,
@@ -31,13 +24,13 @@ const ContactInfoCard = ({
   href?: string;
 }) => {
   const content = (
-    <div className="glass-effect flex items-center gap-4 rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
-      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
-        <Icon className="h-6 w-6 text-primary" />
+    <div className="flex items-center gap-4 border border-border bg-card p-4 transition-colors duration-200 hover:border-foreground/30">
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center border border-border text-muted-foreground">
+        <Icon className="h-4 w-4" />
       </div>
       <div>
-        <p className="text-sm text-muted-foreground">{label}</p>
-        <p className="font-medium text-foreground">{value}</p>
+        <p className="section-label mb-0.5">{label}</p>
+        <p className="text-sm font-medium text-foreground">{value}</p>
       </div>
     </div>
   );
@@ -62,19 +55,15 @@ const ContactPage = () => {
   return (
     <Container title="Get In Touch">
       <div className="space-y-8">
-        <div className="glass-effect rounded-xl p-6">
-          <p className="leading-relaxed text-muted-foreground">
-            I&apos;m always interested in hearing about new projects and
-            opportunities. Whether you have a question or just want to say hi,
-            feel free to reach out!
+        <div className="border-l-2 border-border pl-5">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Always interested in new projects and opportunities. Whether you
+            have a question or just want to say hi — feel free to reach out.
+            Typically responds within 24 hours.
           </p>
-          <div className="mt-4 flex items-center gap-2 text-sm text-primary">
-            <Clock className="h-4 w-4" />
-            <span>Typically responds within 24 hours</span>
-          </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           <ContactInfoCard
             icon={Mail}
             label="Email"
@@ -94,47 +83,45 @@ const ContactPage = () => {
           />
           <ContactInfoCard
             icon={MessageSquare}
-            label="Social"
+            label="LinkedIn"
             value="Connect on LinkedIn"
             href="https://www.linkedin.com/in/angelo-santiago-842083318"
           />
         </div>
 
-        <Separator className="bg-border/50" />
+        <div className="h-px bg-border" />
 
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <Send className="h-5 w-5 text-primary" />
-            <h2 className="text-2xl font-semibold">Send a Message</h2>
+        <div className="space-y-5">
+          <div>
+            <p className="section-label mb-2">Contact Form</p>
+            <div className="flex items-center gap-2">
+              <Send className="h-4 w-4 text-primary" />
+              <h2 className="text-xl font-semibold">Send a Message</h2>
+            </div>
+            <div className="mt-2 h-px w-8 bg-primary" />
           </div>
-          <p className="text-muted-foreground">
-            Fill out the form below and I&apos;ll get back to you as soon as
-            possible.
-          </p>
+
           <div className="w-full max-w-2xl">
             <EmailForm />
           </div>
         </div>
 
-        <Separator className="bg-border/50" />
+        <div className="h-px bg-border" />
 
-        <div className="glass-effect rounded-xl p-6">
-          <div className="flex items-start gap-4">
-            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-secondary/10">
-              <MessageSquare className="h-5 w-5 text-secondary" />
-            </div>
-            <div className="flex-1">
-              <h3 className="mb-2 font-semibold">Quick Response Guide</h3>
-              <p className="mb-4 text-sm text-muted-foreground">
-                For the fastest response, please include:
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Project details</Badge>
-                <Badge variant="secondary">Timeline</Badge>
-                <Badge variant="secondary">Budget range</Badge>
-                <Badge variant="secondary">Your email</Badge>
-              </div>
-            </div>
+        <div className="border border-border bg-card p-5">
+          <p className="section-label mb-3">Quick Response Guide</p>
+          <p className="mb-4 text-xs text-muted-foreground">
+            For the fastest response, please include:
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {["Project details", "Timeline", "Budget range", "Your email"].map((item) => (
+              <span
+                key={item}
+                className="border border-border px-3 py-1 text-xs text-muted-foreground"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
 
