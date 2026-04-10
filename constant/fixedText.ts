@@ -284,6 +284,13 @@ export const projects: Project[] = [
     status: "live",
   },
   {
+    name: "Hometown AI",
+    nameDesc: "Internal AI Platform — Hometown Roofing & Restoration TX",
+    desc: "A web-accessible internal AI platform built exclusively for Hometown Roofing & Restoration TX employees. Features a Sales Training Mode where the AI role-plays as a homeowner across real-world scenarios (cold calls, door knocks, insurance claims, storm chaser skeptics) so reps can practice pitches before going into the field. Includes a Knowledge Base powered by RAG (Retrieval-Augmented Generation) — company documents, SOPs, and FAQs are embedded and retrieved at query time, giving the AI grounded, company-specific answers instead of hallucinated ones. Also provides a Basic Chat for general employee queries, image generation for marketing and field use, and an admin layer for managing users and content. Extended the RAG layer into a public-facing API so the same company knowledge base powers customer-side queries on the main site — letting homeowners get accurate, context-aware answers about services, claims, and coverage without ever reaching a human. Built to give every employee — from new trainees to senior reps — on-demand access to AI without needing any technical background.",
+    image: "/hometown-ai.png",
+    status: "live",
+  },
+  {
     name: "HiGantic",
     nameDesc: "AI Agent Builder Platform",
     desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and Claude Agent SDK powering the agentic loop via MCP. Features multi-model support, a credential vault, webhooks, scheduled actions, and inter-agent messaging.",

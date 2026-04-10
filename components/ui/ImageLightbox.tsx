@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 interface ImageLightboxProps {
@@ -23,9 +23,9 @@ const ImageLightbox = ({ src, alt, onClose }: ImageLightboxProps) => {
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 animate-fade-in"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4"
       onClick={onClose}
     >
       <button
@@ -46,7 +46,8 @@ const ImageLightbox = ({ src, alt, onClose }: ImageLightboxProps) => {
           className="max-h-[90vh] max-w-[90vw] object-contain"
         />
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };
 
