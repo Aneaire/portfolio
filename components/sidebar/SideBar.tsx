@@ -9,20 +9,27 @@ import {
   FileText,
 } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
+import ImageLightbox from "../ui/ImageLightbox";
 import Hamburger from "./Hamburger";
 import HamburgerContent from "./HamburgerContent";
 import NavBar from "./NavBar";
 
 export const SideProfile = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   return (
     <div className="border border-border bg-card px-4 py-6">
       <div className="flex flex-col items-center space-y-5">
         <div className="relative">
-          <div className="h-24 w-24 overflow-hidden border-2 border-primary">
+          <div
+            className="h-24 w-24 overflow-hidden border-2 border-primary cursor-pointer"
+            onClick={() => setLightboxOpen(true)}
+          >
             <Image
-              src="https://utfs.io/f/069ce615-0670-4cd6-a9bc-51bc8f8341cc-15qpaj.jpg"
+              src="/profile.jpg"
               width={96}
               height={96}
               alt="Angelo S Santiago"
@@ -32,6 +39,14 @@ export const SideProfile = () => {
           </div>
           <div className="absolute -bottom-1 -right-1 h-3.5 w-3.5 border-2 border-background bg-primary" />
         </div>
+
+        {lightboxOpen && (
+          <ImageLightbox
+            src="/profile.jpg"
+            alt="Angelo S Santiago"
+            onClose={() => setLightboxOpen(false)}
+          />
+        )}
 
         <div className="space-y-1 text-center">
           <h1 className="text-lg font-bold tracking-tight text-foreground">
