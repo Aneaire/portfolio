@@ -15,6 +15,7 @@ const SkillCard = ({
   desc,
   alt,
   link,
+  invert,
   className,
   showDescription = true,
 }: SkillCardProps) => {
@@ -51,7 +52,8 @@ const SkillCard = ({
         <img
           alt={alt}
           src={icon}
-          className="size-12 object-contain transition-transform duration-300 group-hover:scale-105"
+          className={cn("size-12 object-contain transition-transform duration-300 group-hover:scale-105", invert && "invert")}
+
         />
       </div>
 

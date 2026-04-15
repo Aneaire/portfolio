@@ -77,6 +77,7 @@ export type ISKillList = {
   desc: string;
   alt: string;
   link: string;
+  invert?: boolean;
 };
 
 export const skillList = [
@@ -100,6 +101,7 @@ export const skillList = [
     desc: "Next.js is a powerful React framework that enables server-side rendering and enhanced SEO.",
     alt: "Next.js icon representing a React framework for server-side rendering and SEO",
     link: "https://nextjs.org/",
+    invert: true,
   },
   {
     name: "React Native",
@@ -135,6 +137,7 @@ export const skillList = [
     desc: "Shadcn UI is a modern UI framework designed for building visually appealing web applications.",
     alt: "Shadcn UI icon representing a modern UI framework for web application development",
     link: "https://ui.shadcn.com",
+    invert: true,
   },
   {
     name: "Git & GitHub",
@@ -262,6 +265,28 @@ export const skillList = [
     alt: "Google icon representing Google APIs and services",
     link: "https://developers.google.com/",
   },
+  {
+    name: "Pi",
+    icon: "/pi.svg",
+    desc: "Pi is a developer platform by Inflection AI for building and deploying AI-powered applications with conversational intelligence.",
+    alt: "Pi icon representing a developer platform for AI-powered applications",
+    link: "https://pi.dev/",
+  },
+  {
+    name: "Pinecone",
+    icon: "/pinecone.png",
+    desc: "Pinecone is a managed vector database built for AI applications, enabling fast and scalable similarity search for RAG pipelines and semantic search.",
+    alt: "Pinecone icon representing a managed vector database for AI and RAG applications",
+    link: "https://www.pinecone.io/",
+  },
+  {
+    name: "Ollama",
+    icon: "/ollama.png",
+    desc: "Ollama is a tool for running large language models locally, enabling private and offline AI inference without relying on cloud APIs.",
+    alt: "Ollama icon representing a local LLM runtime for private AI inference",
+    link: "https://ollama.com/",
+    invert: true,
+  },
 ];
 
 export type Project = {
@@ -293,7 +318,7 @@ export const projects: Project[] = [
   {
     name: "HiGantic",
     nameDesc: "AI Agent Builder Platform",
-    desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and Claude Agent SDK powering the agentic loop via MCP. Features multi-model support, a credential vault, webhooks, scheduled actions, and inter-agent messaging.",
+    desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and the AI SDK by Vercel powering the agentic loop with multi-model support. Features a credential vault, webhooks, scheduled actions, and inter-agent messaging.",
     image: "/higantic.png",
     link: "https://higantic.vercel.app/",
     status: "upcoming",

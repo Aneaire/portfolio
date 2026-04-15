@@ -30,12 +30,12 @@ const categories: CategoryInfo[] = [
   {
     id: "ai",
     label: "AI & Automation",
-    skills: ["Claude", "OpenCode", "N8N", "Zapier", "AI tools"],
+    skills: ["Claude", "OpenCode", "N8N", "Zapier", "AI tools", "Pi", "Ollama"],
   },
   {
     id: "database",
     label: "Database",
-    skills: ["PostgresQL", "Supabase", "Appwrite", "Drizzle", "Mapbox"],
+    skills: ["PostgresQL", "Supabase", "Appwrite", "Drizzle", "Mapbox", "Pinecone"],
   },
   {
     id: "tools",
