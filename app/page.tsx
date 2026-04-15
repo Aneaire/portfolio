@@ -6,7 +6,7 @@ import { homeText, projects, skillList } from "@/constant/fixedText";
 import ProjectCard from "./projects/ProjectCard";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const TypeWriter = ({
@@ -70,13 +70,27 @@ const stagger = {
 };
 
 const HeroSection = () => {
+  const [previewVisible, setPreviewVisible] = useState(false);
+
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       variants={stagger}
-      className="relative mb-16 pt-8"
+      className="relative mb-16 overflow-hidden border border-border"
     >
+      {/* Video background */}
+      <video
+        src="/showreel.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover opacity-20"
+      />
+      {/* Dark gradient overlay — heavier on the left where text lives */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/30" />
+      <div className="relative px-8 pt-8 pb-12">
       <motion.div variants={fadeUp} custom={0} className="mb-5 flex items-center gap-3">
         <span className="flex items-center gap-2 text-xs text-muted-foreground">
           <span className="relative flex h-2 w-2">
@@ -138,6 +152,41 @@ const HeroSection = () => {
           Let&apos;s Talk
         </Link>
       </motion.div>
+      </div>
+
+      {/* Hover trigger zone — right half, desktop only */}
+      <div
+        className="absolute inset-y-0 right-0 z-10 hidden w-1/2 md:flex items-center justify-center"
+        onMouseEnter={() => setPreviewVisible(true)}
+      >
+        <div className="flex flex-col items-center gap-2 opacity-20">
+          <ArrowRight className="h-8 w-8 text-foreground" />
+          <span className="text-[10px] uppercase tracking-widest text-foreground">hover</span>
+        </div>
+      </div>
+
+      {/* Full-card takeover — desktop only */}
+      <AnimatePresence>
+        {previewVisible && (
+          <motion.div
+            initial={{ clipPath: "inset(0 0 0 100%)", opacity: 0 }}
+            animate={{ clipPath: "inset(0 0 0 0%)", opacity: 1 }}
+            exit={{ clipPath: "inset(0 0 0 100%)", opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+            className="absolute inset-0 z-20 hidden md:block"
+            onMouseLeave={() => setPreviewVisible(false)}
+          >
+            <video
+              src="/showreel.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

@@ -301,6 +301,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "François Portfolio",
+    nameDesc: "Creative Multimedia Portfolio",
+    desc: "A personal portfolio site built for Francis Pangilinan — a multimedia specialist offering Graphic Design, Video Editing, and Web Design. Features a cinematic hero with video showreel, a varied portfolio grid, service listings, and client testimonials. Built with Next.js and React 19, with a dark editorial aesthetic designed to let the creative work take center stage.",
+    image: "/francois.png",
+    status: "live",
+  },
+  {
     name: "Hometown Roofing TX",
     nameDesc: "Roofing & Restoration Business Site",
     desc: "Completely rebuilt the Hometown Roofing & Restoration website from Wix to a custom React application — delivering a faster, fully responsive, and maintainable site. Migrated all existing content and pages while modernizing the UI. Implemented form automations using n8n to handle lead capture and service inquiries, and set up automated email drip campaigns to nurture prospects from first contact through follow-up — replacing manual outreach with a hands-off pipeline that runs on submission.",
