@@ -301,13 +301,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "François Portfolio",
-    nameDesc: "Creative Multimedia Portfolio",
-    desc: "A personal portfolio site built for Francis Pangilinan — a multimedia specialist offering Graphic Design, Video Editing, and Web Design. Features a cinematic hero with video showreel, a varied portfolio grid, service listings, and client testimonials. Built with Next.js and React 19, with a dark editorial aesthetic designed to let the creative work take center stage.",
-    image: "/francois.png",
-    status: "live",
-  },
-  {
     name: "Hometown Roofing TX",
     nameDesc: "Roofing & Restoration Business Site",
     desc: "Completely rebuilt the Hometown Roofing & Restoration website from Wix to a custom React application — delivering a faster, fully responsive, and maintainable site. Migrated all existing content and pages while modernizing the UI. Implemented form automations using n8n to handle lead capture and service inquiries, and set up automated email drip campaigns to nurture prospects from first contact through follow-up — replacing manual outreach with a hands-off pipeline that runs on submission.",
@@ -336,6 +329,13 @@ export const projects: Project[] = [
     desc: "WellChat is an AI-powered mental health support platform featuring adaptive persona-based therapy conversations powered by Google Gemini. A dual-AI architecture selects the best therapeutic persona (Empathetic Listener, Supportive Guide, Motivational Coach) per message, with crisis detection that overrides usage limits. Includes session management, a role-play training system, an audiobook library, a story maker, and a full admin dashboard. Built with React 19, TanStack Router, Convex for real-time backend, Clerk auth, and a premium subscription system via PayMongo.",
     image: "/aicompanion.png",
     link: "https://wellchat-omega.vercel.app/",
+    status: "live",
+  },
+  {
+    name: "François Portfolio",
+    nameDesc: "Creative Multimedia Portfolio",
+    desc: "A personal portfolio site built for Francis Pangilinan — a multimedia specialist offering Graphic Design, Video Editing, and Web Design. Features a cinematic hero with video showreel, a varied portfolio grid, service listings, and client testimonials. Built with Next.js and React 19, with a dark editorial aesthetic designed to let the creative work take center stage.",
+    image: "/francois.png",
     status: "live",
   },
   {
