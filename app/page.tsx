@@ -159,7 +159,7 @@ const HeroSection = () => {
         className="absolute inset-y-0 right-0 z-10 hidden w-1/2 md:flex items-center justify-center"
         onMouseEnter={() => setPreviewVisible(true)}
       >
-        <div className="flex flex-col items-center gap-2 opacity-20">
+        <div className="flex flex-col items-center gap-2 opacity-50">
           <ArrowRight className="h-8 w-8 text-foreground" />
           <span className="text-[10px] uppercase tracking-widest text-foreground">hover</span>
         </div>
