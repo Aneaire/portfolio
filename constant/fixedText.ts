@@ -337,6 +337,7 @@ export const projects: Project[] = [
     desc: "A personal portfolio site built for Francis Pangilinan — a multimedia specialist offering Graphic Design, Video Editing, and Web Design. Features a cinematic hero with video showreel, a varied portfolio grid, service listings, and client testimonials. Built with Next.js and React 19, with a dark editorial aesthetic designed to let the creative work take center stage.",
     image: "/francois.png",
     status: "live",
+    link: "https://francois-portfolio-nu.vercel.app/",
   },
   {
     name: "ANEAIRE AI Coding Agent",
