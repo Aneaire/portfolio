@@ -24,9 +24,9 @@ export const homeText = {
         "I integrate AI automation with traditional software development to create intelligent workflows that boost productivity. Using Zapier, N8N, and custom Google Cloud Functions, I eliminate repetitive tasks and deliver 25%+ productivity gains. My solutions combine robust software architecture with AI-powered automation, ensuring reliable systems that handle complex business processes while reducing manual errors and operational overhead.",
     },
     {
-      title: "Custom AI — Built for Your Use Case",
+      title: "Custom AI, Built for Your Use Case",
       description:
-        "I build AI that is shaped around how you actually work. Each agent is customized to a specific role — customer support, internal ops, sales, onboarding, or anything in between. It learns as the conversation progresses, retains context across sessions, and gets sharper over time. The result is an AI that doesn't just answer questions — it builds a relationship with your users, integrates deeply with your existing services, and becomes a native part of your internal tooling.",
+        "I build AI that is shaped around how you actually work. Each agent is customized to a specific role, whether that's customer support, internal ops, sales, onboarding, or anything in between. It learns as the conversation progresses, retains context across sessions, and gets sharper over time. The result is an AI that doesn't just answer questions but builds a relationship with your users, integrates deeply with your existing services, and becomes a native part of your internal tooling.",
     },
     {
       title: "AI-Powered Development Acceleration",
@@ -287,6 +287,29 @@ export const skillList = [
     link: "https://ollama.com/",
     invert: true,
   },
+  {
+    name: "AI SDK",
+    icon: "/ai-sdk.svg",
+    desc: "AI SDK is a TypeScript toolkit for building AI-powered applications with a unified API across multiple LLM providers like OpenAI, Anthropic, and Google.",
+    alt: "AI SDK icon representing a TypeScript toolkit for building AI applications",
+    link: "https://ai-sdk.dev/",
+    invert: true,
+  },
+  {
+    name: "Agent SDK",
+    icon: "/claude.svg",
+    desc: "Claude Agent SDK enables programmatic interaction with Claude Code, allowing developers to build applications that leverage Claude's capabilities for code generation, tool execution, and agentic workflows.",
+    alt: "Claude Agent SDK icon representing Anthropic's SDK for building agentic applications",
+    link: "https://github.com/anthropics/claude-code-sdk-python",
+  },
+  {
+    name: "Railway",
+    icon: "/railway.svg",
+    desc: "Railway is a cloud platform for deploying, managing, and scaling applications and databases with instant deployments and infrastructure automation.",
+    alt: "Railway icon representing a cloud deployment platform for applications",
+    link: "https://railway.app/",
+    invert: true,
+  },
 ];
 
 export type Project = {
@@ -338,6 +361,13 @@ export const projects: Project[] = [
     image: "/francois.png",
     status: "live",
     link: "https://francois-portfolio-nu.vercel.app/",
+  },
+  {
+    name: "n8n Automation Suite",
+    nameDesc: "Business Workflow Automations",
+    desc: "A collection of production n8n workflows hosted on Railway, powering end-to-end business automation — from lead capture to campaign delivery. Includes webhook-driven contact forms, quote request handlers, booking report generators, hero assessment notifications, and automated email drip campaigns. Also handles data processing pipelines that transform raw incoming data into clean, readable formats for downstream consumption. Each workflow integrates with external services and internal APIs, replacing manual processes with event-driven pipelines that trigger on form submission, schedule, or API call — handling everything from customer inquiries to internal team notifications without human intervention.",
+    image: "/n8n-automations.png",
+    status: "live",
   },
   {
     name: "ANEAIRE AI Coding Agent",
