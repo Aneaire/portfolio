@@ -29,7 +29,7 @@ export const SideProfile = () => {
             onClick={() => setLightboxOpen(true)}
           >
             <Image
-              src="/profile.jpg"
+              src="/profile.png"
               width={96}
               height={96}
               alt="Angelo S Santiago"
@@ -42,7 +42,7 @@ export const SideProfile = () => {
 
         {lightboxOpen && (
           <ImageLightbox
-            src="/profile.jpg"
+            src="/profile.png"
             alt="Angelo S Santiago"
             onClose={() => setLightboxOpen(false)}
           />

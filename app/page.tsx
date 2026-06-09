@@ -398,7 +398,6 @@ export default function Home() {
   return (
     <div className="mx-auto mt-2 w-full max-w-5xl">
       <HeroSection />
-      <StatsSection />
       <ServicesSection />
       <FeaturedSkills />
       <FeaturedProjects />

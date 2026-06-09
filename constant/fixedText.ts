@@ -293,7 +293,6 @@ export const skillList = [
     desc: "AI SDK is a TypeScript toolkit for building AI-powered applications with a unified API across multiple LLM providers like OpenAI, Anthropic, and Google.",
     alt: "AI SDK icon representing a TypeScript toolkit for building AI applications",
     link: "https://ai-sdk.dev/",
-    invert: true,
   },
   {
     name: "Agent SDK",
@@ -308,7 +307,6 @@ export const skillList = [
     desc: "Railway is a cloud platform for deploying, managing, and scaling applications and databases with instant deployments and infrastructure automation.",
     alt: "Railway icon representing a cloud deployment platform for applications",
     link: "https://railway.app/",
-    invert: true,
   },
 ];
 

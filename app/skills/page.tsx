@@ -30,7 +30,7 @@ const categories: CategoryInfo[] = [
   {
     id: "ai",
     label: "AI & Automation",
-    skills: ["Claude", "OpenCode", "N8N", "Zapier", "AI tools", "Pi", "Ollama"],
+    skills: ["Claude", "OpenCode", "N8N", "Zapier", "AI tools", "Pi", "Ollama", "AI SDK", "Agent SDK"],
   },
   {
     id: "database",
@@ -40,7 +40,7 @@ const categories: CategoryInfo[] = [
   {
     id: "tools",
     label: "Tools & DevOps",
-    skills: ["Git & GitHub", "Docker", "Stripe", "Paymongo", "Posthog", "Google Services"],
+    skills: ["Git & GitHub", "Docker", "Stripe", "Paymongo", "Posthog", "Google Services", "Railway"],
   },
 ];
 
