@@ -109,7 +109,7 @@ export const SideProfile = () => {
             className="flex-1 border-border text-xs hover:border-primary hover:bg-transparent hover:text-primary"
             asChild
           >
-            <a href="/resume.pdf" download>
+            <a href="/Resume UPDATED.pdf" download>
               <FileText className="mr-1.5 h-3 w-3" />
               Resume
             </a>
