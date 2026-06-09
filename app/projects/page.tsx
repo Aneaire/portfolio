@@ -3,7 +3,7 @@
 import Container from "@/components/Common/Container";
 import Quote from "@/components/Common/Quote";
 import { projects, Project } from "@/constant/fixedText";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { ExternalLink, ArrowRight, ChevronDown, ZoomIn } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -32,6 +32,11 @@ const statusLabels: Record<Project["status"], string> = {
 
 const ProjectDetail = ({ project }: { project: Project }) => {
   const [lightbox, setLightbox] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [project.name]);
 
   return (
   <div className="flex flex-col gap-5">
@@ -78,6 +83,9 @@ const ProjectDetail = ({ project }: { project: Project }) => {
       )}
       onClick={() => project.image && setLightbox(true)}
     >
+      {!imageLoaded && (
+        <div className="absolute inset-0 animate-pulse bg-muted" />
+      )}
       {project.image ? (
         <>
           <Image
@@ -85,8 +93,12 @@ const ProjectDetail = ({ project }: { project: Project }) => {
             src={project.image}
             width={800}
             height={450}
-            className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+            className={cn(
+              "h-full w-full object-cover object-top transition-all duration-300 group-hover:scale-[1.02]",
+              imageLoaded ? "opacity-100" : "opacity-0",
+            )}
             priority
+            onLoad={() => setImageLoaded(true)}
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-200 group-hover:bg-black/30">
             <ZoomIn className="h-6 w-6 text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
@@ -241,7 +253,7 @@ const ProjectsPage = () => {
 
               {/* Right: detail panel */}
               <div className="flex-1 bg-card p-8">
-                {selectedProject && <ProjectDetail project={selectedProject} />}
+                {selectedProject && <ProjectDetail key={selectedProject.name} project={selectedProject} />}
               </div>
             </div>
 
