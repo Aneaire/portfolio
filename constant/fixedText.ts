@@ -59,6 +59,11 @@ export const navLink: {
     variant: "outline",
   },
   {
+    name: "Experience",
+    href: "/experience",
+    variant: "outline",
+  },
+  {
     name: "Projects",
     href: "/projects",
     variant: "outline",

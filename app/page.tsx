@@ -154,9 +154,9 @@ const HeroSection = () => {
       </motion.div>
       </div>
 
-      {/* Hover trigger zone — right half, desktop only */}
+      {/* Hover trigger zone — right edge, desktop only */}
       <div
-        className="absolute inset-y-0 right-0 z-10 hidden w-1/2 md:flex items-center justify-center"
+        className="absolute inset-y-0 right-0 z-10 hidden w-16 md:flex items-center justify-center"
         onMouseEnter={() => setPreviewVisible(true)}
       >
         <div className="flex flex-col items-center gap-2 opacity-50">
@@ -306,7 +306,7 @@ const FeaturedSkills = () => {
 };
 
 const FeaturedProjects = () => {
-  const featuredNames = ["Hometown Roofing TX", "HiGantic", "WellChat AI"];
+  const featuredNames = ["HiGantic", "Hometown Roofing TX", "WellChat AI"];
   const featured = featuredNames
     .map((name) => projects.find((p) => p.name === name))
     .filter(Boolean) as typeof projects;
