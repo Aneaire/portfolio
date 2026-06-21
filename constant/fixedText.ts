@@ -9,29 +9,19 @@ export const skills = [
 ];
 
 export const homeText = {
-  title: "Software Developer & Multi-agent AI Orchestration Specialist",
+  title: "Full Stack Developer & AI Engineer",
   description:
-    "Hello! I'm Angelo Santiago, a Software Developer specializing in AI-powered automation and data engineering solutions. I combine strong software engineering fundamentals with cutting-edge AI tools and data processing technologies to build applications that not only function flawlessly but also drive business efficiency. My expertise spans full-stack development, workflow automation, AI-enhanced development practices, and scalable data pipeline architecture using Claude, Codex, and OpenCode. This comprehensive focus ensures clients receive robust, scalable software solutions that deliver 40-60% faster development cycles while maintaining exceptional quality and reducing operational costs.",
+    "Hello! I'm Angelo Santiago, a Full Stack Developer and AI Engineer focused on building scalable web applications, automation systems, and AI-powered tools. I combine strong software engineering fundamentals with practical AI implementation to create products that improve business efficiency and user experience. My experience spans frontend and backend development, workflow automation, agent-based applications, and data pipelines, supported by modern AI tooling that helps accelerate delivery while maintaining code quality, performance, and reliability.",
   others: [
     {
-      title: "Full-Stack Software Development",
+      title: "Full-Stack Development",
       description:
-        "I build robust, scalable applications using modern frameworks like React, Next.js, Node.js, and TypeScript. My software engineering expertise ensures clean, maintainable code with proper architecture, testing, and deployment practices. From responsive web applications to mobile solutions, I deliver high-quality software that meets business requirements while following industry best practices for security, performance, and user experience.",
+        "I build responsive, scalable web applications across the frontend and backend using modern JavaScript and TypeScript frameworks. My focus is clean architecture, strong performance, and reliable product delivery.",
     },
     {
-      title: "AI-Enhanced Workflow Automation",
+      title: "AI Engineering",
       description:
-        "I integrate AI automation with traditional software development to create intelligent workflows that boost productivity. Using Zapier, N8N, and custom Google Cloud Functions, I eliminate repetitive tasks and deliver 25%+ productivity gains. My solutions combine robust software architecture with AI-powered automation, ensuring reliable systems that handle complex business processes while reducing manual errors and operational overhead.",
-    },
-    {
-      title: "Custom AI, Built for Your Use Case",
-      description:
-        "I build AI that is shaped around how you actually work. Each agent is customized to a specific role, whether that's customer support, internal ops, sales, onboarding, or anything in between. It learns as the conversation progresses, retains context across sessions, and gets sharper over time. The result is an AI that doesn't just answer questions but builds a relationship with your users, integrates deeply with your existing services, and becomes a native part of your internal tooling.",
-    },
-    {
-      title: "AI-Powered Development Acceleration",
-      description:
-        "I leverage AI tools like Claude, Codex, and OpenCode to enhance traditional software development, achieving 40-60% faster delivery without compromising quality. This AI-assisted approach combines solid engineering practices with intelligent code generation, automated testing, and rapid prototyping. The result is faster time-to-market, reduced development costs, and competitive advantage while maintaining the reliability and maintainability of well-engineered software solutions.",
+        "I build AI-powered features, agent-based workflows, and automation systems that help teams move faster. My work includes practical AI integrations, RAG applications, and internal tools for real business use cases.",
     },
   ],
 };
@@ -51,6 +41,11 @@ export const navLink: {
   {
     name: "Introduction",
     href: "/",
+    variant: "outline",
+  },
+  {
+    name: "Expertise",
+    href: "/expertise",
     variant: "outline",
   },
   {

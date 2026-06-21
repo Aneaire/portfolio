@@ -132,9 +132,8 @@ const HeroSection = () => {
         custom={2}
         className="mb-10 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base"
       >
-        Software Developer & AI Automation Specialist. Full-stack engineering
-        combined with Claude, Codex, and multi-agent orchestration — shipping
-        production systems 40–60% faster.
+        Full Stack Developer and AI Engineer focused on scalable products,
+        automation, and practical AI systems that ship faster and work reliably.
       </motion.p>
 
       <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
@@ -195,7 +194,7 @@ const stats = [
   { value: "7+", label: "Projects Shipped" },
   { value: "24+", label: "Technologies" },
   { value: "40–60%", label: "Faster Delivery" },
-  { value: "4", label: "Service Areas" },
+  { value: "2", label: "Core Specialties" },
 ];
 
 const StatsSection = () => {
@@ -235,10 +234,19 @@ const ServicesSection = () => {
       variants={stagger}
       className="mb-16"
     >
-      <motion.div variants={fadeUp} custom={0} className="mb-8">
-        <p className="section-label mb-2">What I Do</p>
-        <h2 className="text-2xl font-bold">Services</h2>
-        <div className="mt-2 h-px w-8 bg-primary" />
+      <motion.div variants={fadeUp} custom={0} className="mb-8 flex items-end justify-between gap-4">
+        <div>
+          <p className="section-label mb-2">What I Do</p>
+          <h2 className="text-2xl font-bold">Core Expertise</h2>
+          <div className="mt-2 h-px w-8 bg-primary" />
+        </div>
+        <Link
+          href="/expertise"
+          className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary"
+        >
+          Deep Dive
+          <ArrowRight className="h-3 w-3" />
+        </Link>
       </motion.div>
 
       <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">

@@ -21,18 +21,18 @@ const stagger = {
 
 const achievements = [
   {
-    label: "Multi-agent Systems",
-    desc: "Designed and deployed streamlined multi-agent systems for complex workflow automation",
+    label: "AI Solutions",
+    desc: "Built and deployed agent-based and automation systems for complex business workflows",
     icon: Zap,
   },
   {
     label: "Development Acceleration",
-    desc: "Achieved 40-60% faster delivery cycles through AI-enhanced development",
+    desc: "Achieved 40–60% faster delivery cycles through AI-assisted development",
     icon: TrendingUp,
   },
   {
     label: "Cost Reduction",
-    desc: "Reduced operational costs by 30-40% through intelligent automation",
+    desc: "Reduced operational costs by 30–40% through automation and process optimization",
     icon: TrendingUp,
   },
   {
@@ -42,25 +42,24 @@ const achievements = [
   },
   {
     label: "Scalability",
-    desc: "Designed and deployed scalable AI solutions handling business growth seamlessly",
+    desc: "Designed and deployed scalable applications that supported business growth",
     icon: TrendingUp,
   },
   {
     label: "Quality Assurance",
-    desc: "Maintained exceptional code quality while accelerating development timelines",
+    desc: "Maintained strong code quality while accelerating development timelines",
     icon: Zap,
   },
 ];
 
 const responsibilities = [
   "Developed and deployed scalable web applications using React, Next.js, Node.js, and TypeScript",
-  "Designed and implemented multi-agent orchestration systems powered by Agentic AI and RAG architectures",
-  "Built intelligent agent workflows that collaborate, reason, and deliver context-aware responses at scale",
-  "Implemented AI-powered automation solutions using Zapier, N8N, and Google Cloud Functions",
-  "Designed and maintained data pipelines and cloud architecture for optimal performance",
-  "Leveraged AI development tools (Claude, OpenCode) to accelerate delivery by 40-60%",
-  "Reduced operational costs by 30-40% through intelligent automation implementations",
-  "Achieved 25%+ productivity gains through workflow optimization and automation",
+  "Built AI-powered features, including agent-based workflows and RAG applications, for business automation and internal tooling",
+  "Implemented automation solutions using Zapier, n8n, and Google Cloud Functions",
+  "Designed and maintained data pipelines and cloud architecture for performance and reliability",
+  "Used AI-assisted development tools to accelerate delivery by 40–60% while maintaining code quality",
+  "Reduced operational costs by 30–40% through automation and process improvement",
+  "Improved team productivity by 25%+ through workflow optimization and system automation",
 ];
 
 const ExperiencePage = () => {
@@ -75,13 +74,11 @@ const ExperiencePage = () => {
         {/* Summary */}
         <motion.div variants={fadeUp} custom={0} className="border-l-2 border-border pl-5">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Software Developer with{" "}
-            <span className="font-medium text-foreground">3 years of professional experience</span>,
-            specializing in{" "}
-            <span className="font-medium text-foreground">Multi-agent AI Orchestration</span> and
-            Agentic RAG solutions. Combining strong software engineering fundamentals with
-            cutting-edge AI tools to build applications that drive business efficiency and deliver
-            40-60% faster development cycles.
+            Full Stack Developer with{" "}
+            <span className="font-medium text-foreground">4 years of professional experience</span>
+            building web applications, automation systems, and AI-powered tools. Combines strong
+            software engineering fundamentals with practical AI engineering skills to deliver
+            scalable products that improve efficiency, reliability, and development speed.
           </p>
         </motion.div>
 
@@ -107,7 +104,7 @@ const ExperiencePage = () => {
                 </div>
               </div>
               <span className="shrink-0 border border-border px-3 py-1 text-xs text-muted-foreground">
-                2022 — 2025
+                2022 — 2026
               </span>
             </div>
 
