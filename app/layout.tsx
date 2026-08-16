@@ -27,9 +27,27 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Angelo Santiago | Full Stack Developer & AI Automation Specialist",
+  metadataBase: new URL("https://aneaire.xyz"),
+  title: "Angelo Santiago | Full Stack, AI & CRM Automation",
   description:
-    "Portfolio of Angelo Santiago - Software Developer specializing in AI-powered automation, full-stack development, and scalable solutions.",
+    "Portfolio of Angelo Santiago, a software developer specializing in full-stack products, AI automation, and HubSpot and Salesforce integrations.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Angelo Santiago | Full Stack, AI & CRM Automation",
+    description:
+      "Full-stack products, AI systems, workflow automation, and CRM integrations built for real business needs.",
+    url: "/",
+    siteName: "Angelo Santiago Portfolio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Angelo Santiago | Full Stack, AI & CRM Automation",
+    description:
+      "Full-stack products, AI systems, workflow automation, and CRM integrations built for real business needs.",
+  },
 };
 
 export default function RootLayout({

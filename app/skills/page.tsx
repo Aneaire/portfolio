@@ -7,7 +7,7 @@ import { skillList, ISKillList } from "@/constant/fixedText";
 import { useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
 
-type SkillCategory = "all" | "frontend" | "backend" | "ai" | "tools" | "database";
+type SkillCategory = "all" | "frontend" | "backend" | "ai" | "database" | "crm" | "tools";
 
 interface CategoryInfo {
   id: SkillCategory;
@@ -38,6 +38,11 @@ const categories: CategoryInfo[] = [
     skills: ["PostgresQL", "Supabase", "Appwrite", "Drizzle", "Mapbox", "Pinecone"],
   },
   {
+    id: "crm",
+    label: "CRM & Business",
+    skills: ["HubSpot", "Salesforce"],
+  },
+  {
     id: "tools",
     label: "Tools & DevOps",
     skills: ["Git & GitHub", "Docker", "Stripe", "Paymongo", "Posthog", "Google Services", "Railway"],
@@ -59,9 +64,9 @@ const SkillsPage = () => {
         <div className="border-l-2 border-border pl-5">
           <p className="text-sm leading-relaxed text-muted-foreground">
             Software Developer specializing in{" "}
-            <span className="text-foreground font-medium">AI Automation</span>{" "}
-            and full-stack development. Strong engineering fundamentals with
-            cutting-edge tools to build solutions that drive business efficiency.
+            <span className="text-foreground font-medium">AI automation</span>, full-stack
+            development, and CRM integrations. Strong engineering fundamentals with the
+            business platforms needed to build connected, efficient systems.
           </p>
         </div>
 

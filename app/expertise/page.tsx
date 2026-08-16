@@ -8,6 +8,9 @@ import {
   Code2,
   Database,
   LayoutPanelTop,
+  Plug,
+  Settings2,
+  Users,
   Workflow,
   Wrench,
 } from "lucide-react";
@@ -54,9 +57,32 @@ const aiAreas = [
   },
 ];
 
+const crmAreas = [
+  {
+    title: "CRM Implementation",
+    description:
+      "HubSpot and Salesforce configured around practical sales, marketing, and customer-service workflows.",
+    icon: Settings2,
+  },
+  {
+    title: "Systems Integration",
+    description:
+      "CRM data connected with websites, APIs, forms, internal applications, and third-party business tools.",
+    icon: Plug,
+  },
+  {
+    title: "Lead & Lifecycle Automation",
+    description:
+      "Lead capture, routing, follow-ups, lifecycle updates, and notifications automated across the customer journey.",
+    icon: Workflow,
+  },
+];
+
 const strengths = [
   "Strong frontend and backend delivery across modern TypeScript stacks",
   "Practical AI engineering focused on useful, shippable systems",
+  "HubSpot and Salesforce integrations connected to custom applications",
+  "Automated lead capture, routing, follow-ups, and lifecycle updates",
   "Experience building internal tools, automations, and production-ready apps",
   "Fast iteration with AI-assisted workflows without sacrificing code quality",
 ];
@@ -67,10 +93,15 @@ export default function ExpertisePage() {
       <div className="space-y-10">
         <div className="border-l-2 border-border pl-5">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            My work is centered on two core strengths: <span className="font-medium text-foreground">full-stack development</span>{" "}
-            and <span className="font-medium text-foreground">AI engineering</span>. Together, they let me build
-            products that are polished on the surface, dependable underneath, and more efficient
-            through smart automation.
+            My work combines three core strengths:{" "}
+            <span className="font-medium text-foreground">
+              full-stack development
+            </span>
+            ,{" "}
+            <span className="font-medium text-foreground">AI engineering</span>,
+            and <span className="font-medium text-foreground">CRM systems</span>
+            . Together, they let me build customer-facing products, connect
+            business data, and automate the workflows behind them.
           </p>
         </div>
 
@@ -82,14 +113,17 @@ export default function ExpertisePage() {
               </div>
               <div>
                 <p className="section-label">Specialty 01</p>
-                <h2 className="text-2xl font-bold text-foreground">Full-Stack Development</h2>
+                <h2 className="text-2xl font-bold text-foreground">
+                  Full-Stack Development
+                </h2>
               </div>
             </div>
 
             <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-              I build end-to-end web products, from interface design and frontend behavior to APIs,
-              data models, integrations, and deployment. My approach is focused on shipping clean,
-              scalable software that solves real business problems.
+              I build end-to-end web products, from interface design and
+              frontend behavior to APIs, data models, integrations, and
+              deployment. My approach is focused on shipping clean, scalable
+              software that solves real business problems.
             </p>
 
             <div className="space-y-px border border-border bg-border">
@@ -97,8 +131,12 @@ export default function ExpertisePage() {
                 <div key={item.title} className="flex gap-4 bg-background p-4">
                   <item.icon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <div>
-                    <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+                    <h3 className="text-sm font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -112,14 +150,17 @@ export default function ExpertisePage() {
               </div>
               <div>
                 <p className="section-label">Specialty 02</p>
-                <h2 className="text-2xl font-bold text-foreground">AI Engineering</h2>
+                <h2 className="text-2xl font-bold text-foreground">
+                  AI Engineering
+                </h2>
               </div>
             </div>
 
             <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-              I build practical AI systems that support workflows, internal operations, and customer
-              experiences. That includes agent-based applications, retrieval-powered features, and
-              automation that helps teams move faster with less manual effort.
+              I build practical AI systems that support workflows, internal
+              operations, and customer experiences. That includes agent-based
+              applications, retrieval-powered features, and automation that
+              helps teams move faster with less manual effort.
             </p>
 
             <div className="space-y-px border border-border bg-border">
@@ -127,8 +168,50 @@ export default function ExpertisePage() {
                 <div key={item.title} className="flex gap-4 bg-background p-4">
                   <item.icon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <div>
-                    <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+                    <h3 className="text-sm font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-card p-6 md:p-8 lg:col-span-2">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center border border-border bg-background">
+                <Users className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="section-label">Specialty 03</p>
+                <h2 className="text-2xl font-bold text-foreground">
+                  CRM & Business Systems
+                </h2>
+              </div>
+            </div>
+
+            <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+              I build and connect CRM systems that help teams manage leads,
+              customer relationships, sales activity, and follow-up workflows.
+              My focus is integrating HubSpot and Salesforce with websites,
+              internal tools, APIs, and automation platforms so business data
+              moves reliably.
+            </p>
+
+            <div className="grid grid-cols-1 gap-px border border-border bg-border lg:grid-cols-3">
+              {crmAreas.map((item) => (
+                <div key={item.title} className="flex gap-4 bg-background p-4">
+                  <item.icon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -145,7 +228,10 @@ export default function ExpertisePage() {
 
           <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
             {strengths.map((item) => (
-              <div key={item} className="bg-card p-5 text-sm text-muted-foreground">
+              <div
+                key={item}
+                className="bg-card p-5 text-sm text-muted-foreground"
+              >
                 <span className="mr-2 text-primary">•</span>
                 {item}
               </div>
@@ -157,9 +243,12 @@ export default function ExpertisePage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="section-label mb-2">Next</p>
-              <h2 className="text-2xl font-bold">See the tools and the work behind it</h2>
+              <h2 className="text-2xl font-bold">
+                See the tools and the work behind it
+              </h2>
               <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-                Explore the full stack, AI tools, and selected projects that support these two areas.
+                Explore the full stack, business platforms, and selected
+                projects behind these three areas.
               </p>
             </div>
 

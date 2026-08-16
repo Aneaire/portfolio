@@ -122,6 +122,7 @@ const HeroSection = () => {
             "multi-agent systems",
             "full-stack solutions",
             "smart automations",
+            "connected CRM systems",
           ]}
           className="text-primary font-semibold"
         />
@@ -133,7 +134,7 @@ const HeroSection = () => {
         className="mb-10 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base"
       >
         Full Stack Developer and AI Engineer focused on scalable products,
-        automation, and practical AI systems that ship faster and work reliably.
+        CRM integrations, automation, and practical AI systems that work reliably.
       </motion.p>
 
       <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-3">
@@ -249,7 +250,7 @@ const ServicesSection = () => {
         </Link>
       </motion.div>
 
-      <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
         {homeText.others.map((service, index) => (
           <motion.div
             key={service.title}
@@ -279,6 +280,8 @@ const FeaturedSkills = () => {
     skillList.find((skill) => skill.name === "Claude")!,
     skillList.find((skill) => skill.name === "Node JS")!,
     skillList.find((skill) => skill.name === "Convex")!,
+    skillList.find((skill) => skill.name === "HubSpot")!,
+    skillList.find((skill) => skill.name === "Salesforce")!,
   ].filter(Boolean);
 
   return (
@@ -299,7 +302,7 @@ const FeaturedSkills = () => {
           href="/skills"
           className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary"
         >
-          All 24+ skills
+          All {skillList.length} skills
           <ArrowRight className="h-3 w-3" />
         </Link>
       </motion.div>
@@ -377,8 +380,8 @@ const CTASection = () => {
           Ready to build something?
         </h2>
         <p className="mx-auto mb-8 max-w-md text-sm text-muted-foreground">
-          Whether it&apos;s an AI-powered app, a workflow automation, or a
-          full-stack platform — let&apos;s make it happen.
+          Whether it&apos;s an AI-powered app, a CRM integration, a workflow
+          automation, or a full-stack platform — let&apos;s make it happen.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Link
@@ -389,7 +392,7 @@ const CTASection = () => {
             <ArrowUpRight className="h-4 w-4" />
           </Link>
           <a
-            href="/resume.pdf"
+            href="/Resume UPDATED.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"

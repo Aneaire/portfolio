@@ -23,6 +23,11 @@ export const homeText = {
       description:
         "I build AI-powered features, agent-based workflows, and automation systems that help teams move faster. My work includes practical AI integrations, RAG applications, and internal tools for real business use cases.",
     },
+    {
+      title: "CRM & Business Systems",
+      description:
+        "I connect HubSpot and Salesforce with websites, forms, APIs, and internal tools to keep customer data reliable and automate lead and lifecycle workflows.",
+    },
   ],
 };
 
@@ -308,6 +313,20 @@ export const skillList = [
     alt: "Railway icon representing a cloud deployment platform for applications",
     link: "https://railway.app/",
   },
+  {
+    name: "HubSpot",
+    icon: "/hubspot.svg",
+    desc: "HubSpot is a CRM platform for managing marketing, sales, customer service, content, and business automation in one connected system.",
+    alt: "HubSpot icon representing a CRM platform for marketing, sales, and customer automation",
+    link: "https://www.hubspot.com/",
+  },
+  {
+    name: "Salesforce",
+    icon: "/salesforce.svg",
+    desc: "Salesforce is a cloud CRM platform for building connected sales, service, marketing, analytics, and business workflows.",
+    alt: "Salesforce icon representing a cloud CRM platform for sales, service, and business workflows",
+    link: "https://www.salesforce.com/",
+  },
 ];
 
 export type Project = {
@@ -322,6 +341,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "HiGantic",
+    nameDesc: "Owner · AI Agent Builder Platform",
+    desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and the AI SDK by Vercel powering the agentic loop with multi-model support. Features a credential vault, webhooks, scheduled actions, and inter-agent messaging.",
+    image: "/higantic.png",
+    link: "https://higantic.com",
+    status: "live",
+  },
+  {
     name: "Hometown Roofing TX",
     nameDesc: "Roofing & Restoration Business Site",
     desc: "Completely rebuilt the Hometown Roofing & Restoration website from Wix to a custom React application — delivering a faster, fully responsive, and maintainable site. Migrated all existing content and pages while modernizing the UI. Implemented form automations using n8n to handle lead capture and service inquiries, and set up automated email drip campaigns to nurture prospects from first contact through follow-up — replacing manual outreach with a hands-off pipeline that runs on submission.",
@@ -335,14 +362,6 @@ export const projects: Project[] = [
     desc: "A web-accessible internal AI platform built exclusively for Hometown Roofing & Restoration TX employees. Features a Sales Training Mode where the AI role-plays as a homeowner across real-world scenarios (cold calls, door knocks, insurance claims, storm chaser skeptics) so reps can practice pitches before going into the field. Includes a Knowledge Base powered by RAG (Retrieval-Augmented Generation) — company documents, SOPs, and FAQs are embedded and retrieved at query time, giving the AI grounded, company-specific answers instead of hallucinated ones. Also provides a Basic Chat for general employee queries, image generation for marketing and field use, and an admin layer for managing users and content. Extended the RAG layer into a public-facing API so the same company knowledge base powers customer-side queries on the main site — letting homeowners get accurate, context-aware answers about services, claims, and coverage without ever reaching a human. Built to give every employee — from new trainees to senior reps — on-demand access to AI without needing any technical background.",
     image: "/hometown-ai.png",
     status: "live",
-  },
-  {
-    name: "HiGantic",
-    nameDesc: "AI Agent Builder Platform",
-    desc: "HiGantic is a full-stack SaaS platform for creating and managing custom AI agents through conversation. Users build specialized agents with persistent memory, 50+ built-in tools, autonomous workspaces (tasks, notes, spreadsheets), event-driven automations, and integrations with Slack, Notion, Google Workspace, and more. Built as a monorepo with React 19, Convex for real-time backend, Hono for the agent runtime, and the AI SDK by Vercel powering the agentic loop with multi-model support. Features a credential vault, webhooks, scheduled actions, and inter-agent messaging.",
-    image: "/higantic.png",
-    link: "https://higantic.vercel.app/",
-    status: "upcoming",
   },
   {
     name: "WellChat AI",
