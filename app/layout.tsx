@@ -1,6 +1,5 @@
 import ClientLoadingManager from "@/components/ClientLoadingManager";
-import SideBar from "@/components/sidebar/SideBar";
-import Footer from "@/components/footer/Footer";
+import { PortfolioShell } from "@/components/room/portfolio-shell";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -65,15 +64,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ClientLoadingManager>
-            <div className="flex min-h-screen flex-col">
-              <div className="flex flex-1 gap-0">
-                <SideBar />
-                <main className="min-h-screen flex-1 px-4 py-2">
-                  {children}
-                </main>
-              </div>
-              <Footer />
-            </div>
+            <PortfolioShell>{children}</PortfolioShell>
           </ClientLoadingManager>
           <Toaster />
           <Analytics />
