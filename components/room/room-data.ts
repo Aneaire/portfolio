@@ -73,7 +73,7 @@ export const pets = [
   },
   {
     id: "otter",
-    name: "Pip",
+    name: "Ash",
     species: "Robot otter",
     note: "Small paws. Big explorer.",
     color: "#b7a1fb",

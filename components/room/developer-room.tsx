@@ -119,7 +119,7 @@ export function DeveloperRoom() {
   }, [pet, isReady]);
   useEffect(() => {
     controller.current?.setPaused(
-      !!active || isPetPicker || isMenu || tutorial === 0 || hasError,
+      !!active || isPetPicker || isMenu || hasError,
     );
   }, [active, isPetPicker, isMenu, tutorial, isReady, hasError]);
   useEffect(() => {
