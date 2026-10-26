@@ -8,9 +8,20 @@ interface ImageLightboxProps {
   src: string;
   alt: string;
   onClose: () => void;
+  /**
+   * Render the overlay inline instead of portaling to <body>. Needed when the
+   * lightbox lives inside a native <dialog>, which sits in the browser's top
+   * layer and always paints above any body-level z-index.
+   */
+  disablePortal?: boolean;
 }
 
-const ImageLightbox = ({ src, alt, onClose }: ImageLightboxProps) => {
+const ImageLightbox = ({
+  src,
+  alt,
+  onClose,
+  disablePortal = false,
+}: ImageLightboxProps) => {
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -23,7 +34,7 @@ const ImageLightbox = ({ src, alt, onClose }: ImageLightboxProps) => {
     };
   }, [onClose]);
 
-  return createPortal(
+  const overlay = (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4"
       onClick={onClose}
@@ -46,9 +57,11 @@ const ImageLightbox = ({ src, alt, onClose }: ImageLightboxProps) => {
           className="max-h-[90vh] max-w-[90vw] object-contain"
         />
       </div>
-    </div>,
-    document.body,
+    </div>
   );
+
+  if (disablePortal) return overlay;
+  return createPortal(overlay, document.body);
 };
 
 export default ImageLightbox;

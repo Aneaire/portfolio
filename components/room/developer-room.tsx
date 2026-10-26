@@ -34,6 +34,7 @@ import { pets, stations, type PetId } from "./room-data";
 import { AngeloNpc } from "./angelo-npc";
 import type { RoomController } from "./room-scene";
 import styles from "./room.module.css";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 const icons = [PawPrint, Cpu, Code2, Layers3, Mail];
 
@@ -55,6 +56,7 @@ export function DeveloperRoom() {
   const [active, setActive] = useState<string | null>(null);
   const [visited, setVisited] = useState<string[]>([]);
   const [isMenu, setMenu] = useState(false);
+  const [profileLightboxOpen, setProfileLightboxOpen] = useState(false);
   const selectedPet = pets.find((p) => p.id === pet)!;
   const openStation = useCallback((id: string) => {
     returnFocus.current =
@@ -155,8 +157,10 @@ export function DeveloperRoom() {
     return () => window.removeEventListener("keydown", onKey);
   }, [near, active, isPetPicker, isMenu, tutorial, openStation]);
   useEffect(() => {
-    if (near === destination) setDestination(null);
-  }, [near, destination]);
+    if (!destination || near !== destination) return;
+    // The character reached the station ring, so open its story automatically.
+    openStation(destination);
+  }, [near, destination, openStation]);
   const walkTo = (id: string) => {
     if (hasError) {
       openStation(id);
@@ -582,7 +586,10 @@ export function DeveloperRoom() {
                 <span>ESC</span>
               </button>
             </div>
-            <StationContent id={activeStation.id} />
+            <StationContent
+              id={activeStation.id}
+              onOpenProfile={() => setProfileLightboxOpen(true)}
+            />
             {activeStation.href !== "/" && (
               <Link className={styles.classicLink} href={activeStation.href}>
                 Open full {activeStation.name.toLowerCase()} page{" "}
@@ -597,6 +604,14 @@ export function DeveloperRoom() {
               </button>
             </div>
           </div>
+        )}
+        {profileLightboxOpen && (
+          <ImageLightbox
+            src="/portrait.png"
+            alt="Angelo Santiago — full portrait"
+            onClose={() => setProfileLightboxOpen(false)}
+            disablePortal
+          />
         )}
       </dialog>
     </div>
@@ -698,17 +713,30 @@ function PetPortrait({ id }: { id: PetId }) {
   );
 }
 
-function StationContent({ id }: { id: string }) {
+function StationContent({
+  id,
+  onOpenProfile,
+}: {
+  id: string;
+  onOpenProfile?: () => void;
+}) {
   if (id === "about")
     return (
       <>
         <div className={styles.aboutProfile}>
-          <Image
-            src="/profile.png"
-            alt="Angelo Santiago"
-            width={100}
-            height={100}
-          />
+          <button
+            type="button"
+            className="cursor-pointer border-0 bg-transparent p-0"
+            onClick={() => onOpenProfile?.()}
+            aria-label="View full portrait"
+          >
+            <Image
+              src="/profile.png"
+              alt="Angelo Santiago"
+              width={100}
+              height={100}
+            />
+          </button>
           <div>
             <h3>{personalInfo.name}</h3>
             <p>{homeText.title}</p>

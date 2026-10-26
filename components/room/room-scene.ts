@@ -556,6 +556,7 @@ export function createRoom(host: HTMLDivElement, options: SceneOptions) {
   halo.position.y = 0.08;
   player.add(halo);
   const companions = new Map<PetId, THREE.Group>();
+  const petParts = new Map<PetId, { legs: THREE.Group[]; tail: THREE.Mesh }>();
   for (const id of ["cat", "dog", "otter"] as PetId[]) {
     const pet = new THREE.Group();
     const accent = id === "cat" ? cyan : id === "dog" ? amber : purple;
@@ -575,6 +576,7 @@ export function createRoom(host: HTMLDivElement, options: SceneOptions) {
     box(pet, 0, 0.58, 0.49, 0.36, 0.19, 0.045, dark, 0.07);
     for (const x of [-0.09, 0.09])
       box(pet, x, 0.6, 0.518, 0.045, 0.05, 0.018, accent);
+    const legs: THREE.Group[] = [];
     for (const x of [-0.19, 0.19]) {
       if (id === "cat") {
         const ear = new THREE.Mesh(
@@ -586,17 +588,23 @@ export function createRoom(host: HTMLDivElement, options: SceneOptions) {
       } else if (id === "dog")
         box(pet, x * 1.4, 0.63, 0.22, 0.13, 0.36, 0.23, navy, 0.07);
       else sphere(pet, x, 0.76, 0.28, 0.08, navy);
+      // Pivot each leg at the hip so the walk cycle swings it like a pendulum.
       for (const z of [-0.2, 0.23]) {
-        sphere(pet, x, 0.22, z, 0.085, dark);
-        box(pet, x, 0.13, z + 0.03, 0.13, 0.15, 0.2, navy, 0.04);
+        const leg = new THREE.Group();
+        leg.position.set(x, 0.22, z);
+        sphere(leg, 0, 0, 0, 0.085, dark);
+        box(leg, 0, -0.09, 0.03, 0.13, 0.15, 0.2, navy, 0.04);
+        pet.add(leg);
+        legs.push(leg);
       }
     }
+    let tail: THREE.Mesh;
     if (isOtter) {
-      const tail = box(pet, 0, 0.18, -0.55, 0.21, 0.13, 0.53, navy, 0.06);
+      tail = box(pet, 0, 0.18, -0.55, 0.21, 0.13, 0.53, navy, 0.06);
       tail.rotation.x = -0.12;
       sphere(pet, 0, 0.49, 0.52, 0.055, shell);
     } else {
-      const tail = box(
+      tail = box(
         pet,
         0,
         0.57,
@@ -613,6 +621,7 @@ export function createRoom(host: HTMLDivElement, options: SceneOptions) {
     pet.visible = id === "cat";
     scene.add(pet);
     companions.set(id, pet);
+    petParts.set(id, { legs, tail });
   }
   let petId: PetId = "cat";
   let paused = false;
@@ -867,6 +876,16 @@ export function createRoom(host: HTMLDivElement, options: SceneOptions) {
       !paused && !reducedMotion && distance > 1
         ? Math.abs(Math.sin(time * 16)) * 0.06
         : 0;
+    // Walk cycle: diagonal leg pairs step together while the tail wags for joy.
+    const companion = petParts.get(petId)!;
+    const petWalking = !paused && !reducedMotion && distance > 0.95;
+    companion.legs.forEach((leg, i) => {
+      const phase = i === 0 || i === 3 ? 0 : Math.PI;
+      leg.rotation.x = petWalking ? Math.sin(time * 16 + phase) * 0.5 : 0;
+    });
+    companion.tail.rotation.y = !reducedMotion
+      ? Math.sin(time * (petWalking ? 10 : 5)) * (petWalking ? 0.4 : 0.25)
+      : 0;
     if (!reducedMotion && !paused) trophy.rotation.y += dt * 0.3;
     // Face the visitor using the shortest turn, even when crossing the -PI / PI boundary.
     const facing = Math.atan2(
